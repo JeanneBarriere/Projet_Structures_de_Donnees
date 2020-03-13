@@ -21,17 +21,25 @@ int nE;/* nombre d’’elements contenus dans l’arbre */
 Noeud *A;/* arbre lexicographique */
 } Biblio;
 
+Biblio *charge_n_entrees(const char*nom_fichier , int n);
+
 Biblio *nouvelle_biblio(void);
 
-Biblio *charge_n_entrees(const char*nom_fichier , int n);
+void insere(Biblio *B, int num , char* titre , char* artiste);
 
 void affiche(Biblio *B);
 
 void affiche_noeud(Noeud * n);
-//
-// void affiche_morceau(CellMorceau * L);
 
-void insere(Biblio *B, int num , char* titre , char* artiste);
+void recherche_numero(Biblio * B, int n);
+
+void affiche_noeud_num(Noeud * n, int num);
+
+void recherche_titre(Biblio * B, char * titre);
+
+void affiche_noeud_titre(Noeud * n, char * titre);
+
+void affiche_artiste(Biblio *B, char *artiste);
 
 // void recherche_artiste_prof(Biblio *B, char *artiste);
 
@@ -39,13 +47,10 @@ void insere(Biblio *B, int num , char* titre , char* artiste);
 //
 // void affiche_noeud_artiste(Noeud * n, char * artiste);
 
-// void recherche_numero(Biblio * B, int n);
+// 
+// 
 //
-// void affiche_noeud_num(Noeud * n, int num);
-//
-// void recherche_titre(Biblio * B, char * titre);
-//
-// void affiche_noeud_titre(Noeud * n, char * titre);
+// 
 
 // void affiche_artiste(Biblio *B, char *artiste);
 
