@@ -24,12 +24,9 @@ int main(int argc , const char * argv []) {
 
 	const char *nomfic = argv [1];
 	int nlignes = atoi(argv [2]);
-	char * titre = "Bright";
-	char * artiste = "Hey";
 
 	printf("Lecture:\n");
 	Biblio *biblio = charge_n_entrees(nomfic , nlignes);
-	printf("test fin insertion\n");
 	affiche(biblio);
 
 
@@ -65,15 +62,15 @@ int main(int argc , const char * argv []) {
 				recherche_titre(biblio, s);
 				break;
 			}
-			// case 4:
-			// {
-			// 	printf("Quel artiste?\n");
-			// 	char a[50] = "";
-			// 	scanf("%49s", a);
-			// 	printf("%s\n", a);
-			// 	recherche_artiste(biblio, a);
-			// 	break;
-			// }
+			case 4:
+			{
+				printf("Quel artiste?\n");
+				char a[50] = "";
+				scanf("%49s", a);
+				printf("%s\n", a);
+				recherche_artiste(biblio, a);
+				break;
+			}
 			default:
 				ch = 0;
 				break;

@@ -57,7 +57,7 @@ void affiche_noeud(Noeud * n){
 			printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
 			l2 = l2->suiv;
 		}
-	} 
+	}
 
 	if(cour->liste_car!=NULL){
 		affiche_noeud(cour->liste_car);
@@ -172,7 +172,7 @@ void affiche_noeud_num(Noeud * n, int num){
 			}
 			l2 = l2->suiv;
 		}
-	} 
+	}
 
 	if(cour->liste_car!=NULL){
 		affiche_noeud_num(cour->liste_car, num);
@@ -201,7 +201,7 @@ void affiche_noeud_titre(Noeud * n, char * titre){
 			}
 			l2 = l2->suiv;
 		}
-	} 
+	}
 
 	if(cour->liste_car!=NULL){
 		affiche_noeud_titre(cour->liste_car, titre);
@@ -210,62 +210,62 @@ void affiche_noeud_titre(Noeud * n, char * titre){
 		affiche_noeud_titre(cour->car_suiv, titre);
 	}
 }
-
-void recherche_artiste(Biblio * B, char * artiste){
-	if(B->A==NULL){
-		printf("La liste est vide\n");;
-	} else {
-		affiche_noeud_artiste(B->A, artiste);
-	}
-}
-
-void affiche_noeud_artiste(Noeud * n, char * artiste){
-	Noeud * cour = n;
-
-	if(cour->liste_morceaux != NULL){
-		CellMorceau * l2 = cour->liste_morceaux;
-		while(l2){
-			if((strcmp(l2->artiste, artiste)==0)){
-				affiche_morceau(l2);
-			}
-			l2 = l2->suiv;
-		}
-	} 
-
-	if(cour->liste_car!=NULL){
-		affiche_noeud_artiste(cour->liste_car, artiste);
-	}
-	if(cour->car_suiv!=NULL){
-		affiche_noeud_artiste(cour->car_suiv, artiste);
-	}
-}
-
-// void affiche_artiste(Biblio *B, char *artiste){
-// 	Noeud * cour = B->A;
-// 	Noeud * prec = cour;
-// 	int i = 0;
-// 	while ((cour!=NULL)&&(artiste[i]!='\0')){
-// 		prec=cour;
-// 		if(cour->car == artiste[i]){
-// 			cour=cour->car_suiv;
-// 			i++;
-// 		}else{
-// 			cour = cour ->liste_car;
-// 		}
-// 	}
-// 	if(artiste[i]!='\0'){
-// 		printf("Artiste est pr'esent\n");
-// 		CellMorceau * l2 = cour->liste_morceaux;
-// 		printf("test while\n");
-// 		while(l2){
-			
-// 			printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
-// 			l2 = l2->suiv;
-// 		}
-// 	}else{
-// 		printf("Artiste absent\n");
+//
+// void recherche_artiste(Biblio * B, char * artiste){
+// 	if(B->A==NULL){
+// 		printf("La liste est vide\n");;
+// 	} else {
+// 		affiche_noeud_artiste(B->A, artiste);
 // 	}
 // }
+//
+// void affiche_noeud_artiste(Noeud * n, char * artiste){
+// 	Noeud * cour = n;
+//
+// 	if(cour->liste_morceaux != NULL){
+// 		CellMorceau * l2 = cour->liste_morceaux;
+// 		while(l2){
+// 			if((strcmp(l2->artiste, artiste)==0)){
+// 				affiche_morceau(l2);
+// 			}
+// 			l2 = l2->suiv;
+// 		}
+// 	}
+//
+// 	if(cour->liste_car!=NULL){
+// 		affiche_noeud_artiste(cour->liste_car, artiste);
+// 	}
+// 	if(cour->car_suiv!=NULL){
+// 		affiche_noeud_artiste(cour->car_suiv, artiste);
+// 	}
+// }
+
+void affiche_artiste(Biblio *B, char *artiste){
+	Noeud * cour = B->A;
+	Noeud * prec = cour;
+	int i = 0;
+	while ((cour!=NULL)&&(artiste[i]!='\0')){
+		prec=cour;
+		if(cour->car == artiste[i]){
+			cour=cour->car_suiv;
+			i++;
+		}else{
+			cour = cour ->liste_car;
+		}
+	}
+	if(artiste[i]!='\0'){
+		printf("Artiste est pr'esent\n");
+		CellMorceau * l2 = cour->liste_morceaux;
+		printf("test while\n");
+		while(l2){
+
+			printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
+			l2 = l2->suiv;
+		}
+	}else{
+		printf("Artiste absent\n");
+	}
+}
 
 void suppression_morceau(Biblio *B, char *artiste, int num, char * t){
 	Noeud * cour = B->A;
@@ -323,7 +323,7 @@ void affiche_noeud_doublon(Noeud * n){
 		while(l2){
 			affiche_liste_doublon(cour->liste_morceaux);
 		}
-	} 
+	}
 
 	if(cour->liste_car!=NULL){
 		affiche_noeud_doublon(cour->liste_car);
@@ -352,4 +352,3 @@ void affiche_liste_doublon(CellMorceau * l){
 		l2=l2->suiv;
 	}
 }
-
