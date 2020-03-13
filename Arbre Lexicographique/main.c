@@ -50,14 +50,14 @@ int main(int argc , const char * argv []) {
 				break;
 			}
 			case 2:
-			{	
+			{
 				printf("Quel numero ?\n");
 				scanf("%d", &n);
 				recherche_numero(biblio, n);
 				break;
 			}
 			case 3:
-			{	
+			{
 				printf("Quel titre ?\n");
 				char s[20] = "";
 				scanf("%19s", s);
@@ -66,7 +66,7 @@ int main(int argc , const char * argv []) {
 				break;
 			}
 			// case 4:
-			// {	
+			// {
 			// 	printf("Quel artiste?\n");
 			// 	char a[50] = "";
 			// 	scanf("%49s", a);
