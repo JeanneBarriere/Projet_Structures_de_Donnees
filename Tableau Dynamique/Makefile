@@ -1,4 +1,5 @@
 all : main.o biblio_dynamique.o parser.o
+
 	gcc parser.o biblio_dynamique.o main.o -o main
 
 parser.o : parser.c parser.h
