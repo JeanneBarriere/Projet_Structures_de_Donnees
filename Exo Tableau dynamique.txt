@@ -1,0 +1,28 @@
+Exo Tableau dynamique
+. fonction charger_n_elements = alloue 1 tableau de n cases
+. faire fonction qui lit le n+1 élm du fichier = utiliser fonction réalloc
+=> but expérimentale :
+	. lire n élements, puis p élements 1 à 1 pour n = 1, 10, 50, 100, 1000
+	et p 1 à 1000
+
+Recherche à but divers
+
+Biblio * B;
+char * nom;
+noeud * cour = B->A 
+noeud * prec = cour
+int i = 0;
+while ((cour!=NULL)&&(nom[i]="\0")){
+	prec=cour;
+	if(cour->car == nom[i]){
+	cour=cour->car_suiv;
+	i++;
+	}else{
+	cour = cour ->liste_car;
+	}
+}
+if(nom[i]=!'\0'){
+	printf("Artiste est pr'esent");
+}else{
+	printf("Artiste absent");
+}
