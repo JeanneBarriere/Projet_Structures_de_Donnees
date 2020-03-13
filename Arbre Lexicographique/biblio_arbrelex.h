@@ -28,34 +28,34 @@ Biblio *charge_n_entrees(const char*nom_fichier , int n);
 void affiche(Biblio *B);
 
 void affiche_noeud(Noeud * n);
-
-void affiche_morceau(CellMorceau * L);
+//
+// void affiche_morceau(CellMorceau * L);
 
 void insere(Biblio *B, int num , char* titre , char* artiste);
 
-void recherche_artiste_prof(Biblio *B, char *artiste);
+// void recherche_artiste_prof(Biblio *B, char *artiste);
 
-void recherche_artiste(Biblio *B, char *artiste);
+// void recherche_artiste(Biblio *B, char *artiste);
+//
+// void affiche_noeud_artiste(Noeud * n, char * artiste);
 
-void affiche_noeud_artiste(Noeud * n, char * artiste);
+// void recherche_numero(Biblio * B, int n);
+//
+// void affiche_noeud_num(Noeud * n, int num);
+//
+// void recherche_titre(Biblio * B, char * titre);
+//
+// void affiche_noeud_titre(Noeud * n, char * titre);
 
-void recherche_numero(Biblio * B, int n);
+// void affiche_artiste(Biblio *B, char *artiste);
 
-void affiche_noeud_num(Noeud * n, int num);
-
-void recherche_titre(Biblio * B, char * titre);
-
-void affiche_noeud_titre(Noeud * n, char * titre);
-
-void affiche_artiste(Biblio *B, char *artiste);
-
-void suppression_morceau(Biblio *B, char *a, int num, char * t);
-
-void affiche_doublon(Biblio *B);
-
-void affiche_noeud_doublon(Noeud * n);
-
-void affiche_liste_doublon(CellMorceau * l);
+// void suppression_morceau(Biblio *B, char *a, int num, char * t);
+//
+// void affiche_doublon(Biblio *B);
+//
+// void affiche_noeud_doublon(Noeud * n);
+//
+// void affiche_liste_doublon(CellMorceau * l);
 
 
 #endif/* biblio_arbrelex_h */
