@@ -85,8 +85,8 @@ void affiche_noeud(Noeud * n){
 
 void insere(Biblio *B, int num, char *titre, char *artiste){
 
-
 	CellMorceau * nouv = (CellMorceau *) malloc(sizeof(CellMorceau));
+	
 	nouv -> num = num;
 	nouv -> titre = titre;
 	nouv -> artiste = artiste ;
