@@ -33,7 +33,7 @@ void recherche_artiste(Biblio * B, char * a);
 //
 // void affiche_morceau_avec_num(CellMorceau * L, int n);
 //
-// void libere_biblio(Biblio *B);
+void libere_biblio(Biblio *B);
 //
 // void suppression_morceau_num(Biblio * B, int n);
 //
