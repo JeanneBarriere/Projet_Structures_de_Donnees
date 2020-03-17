@@ -15,23 +15,36 @@ void menu() {
 	printf("Votre choix:");
 }
 
+void viderBuffer()
+{
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
+
 int lire(char *chaine, int longueur)
 {
     char *positionEntree = NULL;
 
-    // On lit le texte saisi au clavier
-    if (fgets(chaine, longueur, stdin) != NULL)  // Pas d'erreur de saisie ?
+    if (fgets(chaine, longueur, stdin) != NULL)
     {
-        positionEntree = strchr(chaine, '\n'); // On recherche l'"Entrée"
-        if (positionEntree != NULL) // Si on a trouvé le retour à la ligne
+        positionEntree = strchr(chaine, '\n');
+        if (positionEntree != NULL)
         {
-            *positionEntree = '\0'; // On remplace ce caractère par \0
+            *positionEntree = '\0';
         }
-        return 1; // On renvoie 1 si la fonction s'est déroulée sans erreur
+        else
+        {
+            viderBuffer();
+        }
+        return 1;
     }
     else
     {
-        return 0; // On renvoie 0 s'il y a eu une erreur
+        viderBuffer();
+        return 0;
     }
 }
 
@@ -76,6 +89,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[50];
+				void viderBuffer()
 				lire(s,50);
 				recherche_titre(biblio, s);
 				break;
@@ -84,6 +98,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char a[50];
+				void viderBuffer()
 				lire(a,50);
 				printf("%s\n", a);
 				recherche_artiste(biblio, a);
