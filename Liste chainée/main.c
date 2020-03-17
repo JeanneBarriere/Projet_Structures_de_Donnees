@@ -89,7 +89,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[50];
-				fgets(a,50,stdin);
+				fgets(s,50,stdin);
 				recherche_titre(biblio, s);
 				break;
 			}
