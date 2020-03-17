@@ -43,11 +43,6 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 void insere(Biblio *B, int num, char *titre, char *artiste){
 
 	CellMorceau * nouv = (CellMorceau *) malloc(sizeof(CellMorceau));
-	if (nouv == NULL){
-		printf("pb malloc\n");
-		perror("malloc\n");
-		exit(1);
-	}
 	nouv -> num = num;
 	nouv -> titre = titre;
 	nouv -> artiste = artiste ;
@@ -240,7 +235,6 @@ void libere_biblio(Biblio * b){
 		CellMorceau * tmp = l2->suiv;
 		free(l2->artiste);
 		free(l2->titre);
-		free(l2->num);
 		free(l2);
 		l2 = tmp;
 	}
