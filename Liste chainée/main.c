@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "biblio_liste.h"
 
@@ -56,7 +56,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[20];
-				gets(s);
+				scanf("%s@\n", s);
 				recherche_titre(biblio, s);
 				break;
 			}
@@ -64,7 +64,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char a[50];
-				gets(a);
+				scanf("%s@\n", a);
 				printf("%s\n", a);
 				recherche_artiste(biblio, a);
 				break;
