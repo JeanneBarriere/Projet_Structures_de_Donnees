@@ -15,6 +15,26 @@ void menu() {
 	printf("Votre choix:");
 }
 
+int lire(char *chaine, int longueur)
+{
+    char *positionEntree = NULL;
+
+    // On lit le texte saisi au clavier
+    if (fgets(chaine, longueur, stdin) != NULL)  // Pas d'erreur de saisie ?
+    {
+        positionEntree = strchr(chaine, '\n'); // On recherche l'"Entrée"
+        if (positionEntree != NULL) // Si on a trouvé le retour à la ligne
+        {
+            *positionEntree = '\0'; // On remplace ce caractère par \0
+        }
+        return 1; // On renvoie 1 si la fonction s'est déroulée sans erreur
+    }
+    else
+    {
+        return 0; // On renvoie 0 s'il y a eu une erreur
+    }
+}
+
 int main(int argc , const char * argv []) {
 	if(argc != 3){
 		printf(" Erreur format : %s <NomFichierBiblio.txt> <NbLigneALire> ",argv[0]);
@@ -55,8 +75,8 @@ int main(int argc , const char * argv []) {
 			case 3:
 			{
 				printf("Quel titre ?\n");
-				char s[20];
-				scanf("%s@\n", s);
+				char s[50];
+				lire(s,50);
 				recherche_titre(biblio, s);
 				break;
 			}
@@ -64,7 +84,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char a[50];
-				scanf("%s@\n", a);
+				lire(a,50);
 				printf("%s\n", a);
 				recherche_artiste(biblio, a);
 				break;
