@@ -233,3 +233,13 @@ void recherche_doublons(Biblio * B){
 		l2=l2->suiv;
 	}
 }
+
+void libere_biblio(Biblio * b){
+	CellMorceau * l2 = b->L;
+	while (l2) {
+		CellMorceau * tmp = b->L;
+		free(l2);
+		l2 = tmp;
+	}
+	free(b);
+}

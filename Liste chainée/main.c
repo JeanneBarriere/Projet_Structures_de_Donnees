@@ -75,6 +75,7 @@ int main(int argc , const char * argv []) {
 		}
 	} while(ch != 0);
 
+	libere_biblio(biblio);
 	printf("Au revoir\n ");
 
 	return 0;
