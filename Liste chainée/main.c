@@ -66,7 +66,7 @@ int main(int argc , const char * argv []) {
 				char a[50] = "";
 				scanf("%49s", a);
 				printf("%s\n", a);
-				affiche_artiste(biblio, a);
+				recherche_artiste(biblio, a);
 				break;
 			}
 			default:
