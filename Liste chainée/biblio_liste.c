@@ -238,6 +238,8 @@ void libere_biblio(Biblio * b){
 	CellMorceau * l2 = b->L;
 	while (l2) {
 		CellMorceau * tmp = l2->suiv;
+		free(l2->artiste);
+		free(l2->titre);
 		free(l2);
 		l2 = tmp;
 	}
