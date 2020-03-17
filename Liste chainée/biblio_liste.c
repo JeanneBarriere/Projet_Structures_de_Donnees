@@ -240,6 +240,7 @@ void libere_biblio(Biblio * b){
 		CellMorceau * tmp = l2->suiv;
 		free(l2->artiste);
 		free(l2->titre);
+		free(l2->num);
 		free(l2);
 		l2 = tmp;
 	}
