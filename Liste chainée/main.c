@@ -89,8 +89,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[50];
-				void viderBuffer();
-				lire(s,50);
+				fgets(a,50,stdin);
 				recherche_titre(biblio, s);
 				break;
 			}
@@ -98,8 +97,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char a[50];
-				void viderBuffer();
-				lire(a,50);
+				fgets(a,50,stdin);
 				printf("%s\n", a);
 				recherche_artiste(biblio, a);
 				break;
