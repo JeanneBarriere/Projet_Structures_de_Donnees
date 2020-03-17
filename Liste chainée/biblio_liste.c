@@ -98,138 +98,138 @@ void recherche_titre(Biblio * B, char * t){
 	}
 }
 
-// void recherche_artiste(Biblio * B, char * a){
-// 	CellMorceau * l2 = B->L;
-// 	while (l2){
-// 		if((strcmp(l2->artiste, a))==0){
-// 		printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
-// 		}
-// 		l2=l2->suiv;
-// 	}
-// }
+void recherche_artiste(Biblio * B, char * a){
+	CellMorceau * l2 = B->L;
+	while (l2){
+		if((strcmp(l2->artiste, a))==0){
+		printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
+		}
+		l2=l2->suiv;
+	}
+}
 
-// void affiche_morceau(CellMorceau * L){
-// 	if(L==NULL){
-// 		printf("Le morceau est vide !\n");
-// 		return;
-// 	}
-// 	printf("%d\t%s\t%s\n", L->num, L->titre, L->artiste);
-// }
-//
-// void affiche_morceau_avec_num(CellMorceau * L, int n){
-// 	if(L==NULL){
-// 		printf("Le morceau est vide !\n");
-// 		return;
-// 	}
-// 	printf("%d\t%s\t%s\n", n, L->titre, L->artiste);
-// }
-//
-// void suppression_morceau_num(Biblio * B, int n){
-// 	CellMorceau * tmpL = B->L;
-// 	CellMorceau * l2 = B->L;
-// 	int suppr = 0;
-//
-// 	if (l2->num == n){
-// 				B->L=B->L->suiv;
-// 				free(tmpL);
-// 				B->L->num=0;
-// 				suppr=1;
-// 				l2 = B->L;
-// 			};
-//
-// 	while (l2->suiv){
-// 		if(l2->suiv->num==n){
-// 			CellMorceau * l3 = l2->suiv;
-// 			l2->suiv = l3->suiv;
-// 			free(l3);
-// 			suppr = 1;
-// 		}
-// 		if (suppr ==1){
-// 			l2->suiv->num=(l2->suiv->num)-1;
-// 		}
-// 		l2=l2->suiv;
-// 	}
-// 	B->nE=(B->nE)-1;
-// }
-//
-// void suppression_morceau_num_ds_liste(CellMorceau * L, int n){
-// 	CellMorceau * tmpL = L;
-// 	CellMorceau * l2 = L;
-// 	int suppr = 0;
-//
-// 	if (l2->num == n){
-// 				L=L->suiv;
-// 				free(tmpL);
-// 				L->num=0;
-// 				suppr=1;
-// 				l2 = L;
-// 			};
-//
-// 	while (l2->suiv){
-// 		if(l2->suiv->num==n && l2->suiv->suiv!=NULL){
-// 			CellMorceau * l3 = l2->suiv;
-// 			l2->suiv = l3->suiv;
-// 			if (l3->suiv !=NULL)
-// 			{
-// 				free(l3);
-// 			}
-//
-// 			suppr = 1;
-// 		}
-// 		if (suppr==1 && (l2->suiv)!=NULL){
-//
-// 			l2->suiv->num=(l2->suiv->num)-1;
-// 		}
-// 		l2=l2->suiv;
-//
-// 	}
-// }
-//
-// void suppression_morceau_titre(Biblio * B, char * t){
-// 	CellMorceau * tmpL = B->L;
-// 	CellMorceau * l2 = B->L;
-// 	int suppr = 0;
-//
-// 	if((strcmp(l2->titre, t)==0)){
-// 				B->L=B->L->suiv;
-// 				free(tmpL);
-// 				B->L->num=0;
-// 				suppr=1;
-// 				l2 = B->L;
-// 			};
-//
-// 	while (l2->suiv){
-// 		if((strcmp(l2->suiv->titre, t)==0)){
-// 			CellMorceau * l3 = l2->suiv;
-// 			l2->suiv = l3->suiv;
-// 			free(l3);
-// 			suppr = 1;
-// 		}
-// 		if (suppr ==1){
-// 			l2->suiv->num=(l2->suiv->num)-1;
-// 		}
-// 		l2=l2->suiv;
-// 	}
-// 	B->nE=(B->nE)-1;
-// }
-//
-// void recherche_doublons(Biblio * B){
-// 	CellMorceau * l2 = B->L;
-// 	int i=0;
-// 	while (l2){
-// 		int vis =0;
-// 		CellMorceau * l3=B->L;
-// 		while(l3){
-// 			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num != l3->num){
-// 				vis=1;
-// 			}
-// 			l3=l3->suiv;
-// 		}
-// 		if(vis != 1){
-// 			affiche_morceau_avec_num(l2, i);
-// 			i++;
-// 		}
-// 		vis=0;
-// 		l2=l2->suiv;
-// 	}
-// }
+void affiche_morceau(CellMorceau * L){
+	if(L==NULL){
+		printf("Le morceau est vide !\n");
+		return;
+	}
+	printf("%d\t%s\t%s\n", L->num, L->titre, L->artiste);
+}
+
+void affiche_morceau_avec_num(CellMorceau * L, int n){
+	if(L==NULL){
+		printf("Le morceau est vide !\n");
+		return;
+	}
+	printf("%d\t%s\t%s\n", n, L->titre, L->artiste);
+}
+
+void suppression_morceau_num(Biblio * B, int n){
+	CellMorceau * tmpL = B->L;
+	CellMorceau * l2 = B->L;
+	int suppr = 0;
+
+	if (l2->num == n){
+				B->L=B->L->suiv;
+				free(tmpL);
+				B->L->num=0;
+				suppr=1;
+				l2 = B->L;
+			};
+
+	while (l2->suiv){
+		if(l2->suiv->num==n){
+			CellMorceau * l3 = l2->suiv;
+			l2->suiv = l3->suiv;
+			free(l3);
+			suppr = 1;
+		}
+		if (suppr ==1){
+			l2->suiv->num=(l2->suiv->num)-1;
+		}
+		l2=l2->suiv;
+	}
+	B->nE=(B->nE)-1;
+}
+
+void suppression_morceau_num_ds_liste(CellMorceau * L, int n){
+	CellMorceau * tmpL = L;
+	CellMorceau * l2 = L;
+	int suppr = 0;
+
+	if (l2->num == n){
+				L=L->suiv;
+				free(tmpL);
+				L->num=0;
+				suppr=1;
+				l2 = L;
+			};
+
+	while (l2->suiv){
+		if(l2->suiv->num==n && l2->suiv->suiv!=NULL){
+			CellMorceau * l3 = l2->suiv;
+			l2->suiv = l3->suiv;
+			if (l3->suiv !=NULL)
+			{
+				free(l3);
+			}
+
+			suppr = 1;
+		}
+		if (suppr==1 && (l2->suiv)!=NULL){
+
+			l2->suiv->num=(l2->suiv->num)-1;
+		}
+		l2=l2->suiv;
+
+	}
+}
+
+void suppression_morceau_titre(Biblio * B, char * t){
+	CellMorceau * tmpL = B->L;
+	CellMorceau * l2 = B->L;
+	int suppr = 0;
+
+	if((strcmp(l2->titre, t)==0)){
+				B->L=B->L->suiv;
+				free(tmpL);
+				B->L->num=0;
+				suppr=1;
+				l2 = B->L;
+			};
+
+	while (l2->suiv){
+		if((strcmp(l2->suiv->titre, t)==0)){
+			CellMorceau * l3 = l2->suiv;
+			l2->suiv = l3->suiv;
+			free(l3);
+			suppr = 1;
+		}
+		if (suppr ==1){
+			l2->suiv->num=(l2->suiv->num)-1;
+		}
+		l2=l2->suiv;
+	}
+	B->nE=(B->nE)-1;
+}
+
+void recherche_doublons(Biblio * B){
+	CellMorceau * l2 = B->L;
+	int i=0;
+	while (l2){
+		int vis =0;
+		CellMorceau * l3=B->L;
+		while(l3){
+			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num != l3->num){
+				vis=1;
+			}
+			l3=l3->suiv;
+		}
+		if(vis != 1){
+			affiche_morceau_avec_num(l2, i);
+			i++;
+		}
+		vis=0;
+		l2=l2->suiv;
+	}
+}

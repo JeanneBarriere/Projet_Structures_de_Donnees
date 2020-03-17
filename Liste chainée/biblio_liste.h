@@ -23,11 +23,11 @@ void insere(Biblio *B, int num , char* titre , char* artiste);
 
 void affiche(Biblio *B);
 
-// void recherche_numero(Biblio * B, int n);
-//
-// void recherche_titre(Biblio * B, char * t);
+void recherche_numero(Biblio * B, int n);
 
-// void recherche_artiste(Biblio * B, char * a);
+void recherche_titre(Biblio * B, char * t);
+
+void recherche_artiste(Biblio * B, char * a);
 
 // void affiche_morceau(CellMorceau * L);
 //
