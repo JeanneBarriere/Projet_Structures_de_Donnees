@@ -100,7 +100,7 @@ int main(int argc , const char * argv []) {
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char art = (char *) malloc(sizeof(char *));
+				char * art = (char *) malloc(sizeof(char *));
 				parse_string(stdin, &art, &a, *retour );
 				printf("%s\n", art);
 				recherche_artiste(biblio, art);
