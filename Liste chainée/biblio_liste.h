@@ -15,34 +15,34 @@ typedef struct Biblio {
 	int nE ; /* Nombre de morceau dans la liste */
 }Biblio;
 
+Biblio *nouvelle_biblio(void);
+
 Biblio *charge_n_entrees(const char*nom_fichier , int n);
-
-void affiche(Biblio *B);
-
-void affiche_morceau(CellMorceau * L);
-
-void affiche_morceau_avec_num(CellMorceau * L, int n);
-
-Biblio *uniques(Biblio *B);
-
-Biblio *nouvelle_biblio(void);
-
-void libere_biblio(Biblio *B);
-
-Biblio *nouvelle_biblio(void);
 
 void insere(Biblio *B, int num , char* titre , char* artiste);
 
-void suppression_morceau_num(Biblio * B, int n);
+void affiche(Biblio *B);
 
-void suppression_morceau_titre(Biblio * B, char * t);
+// void recherche_numero(Biblio * B, int n);
+//
+// void recherche_titre(Biblio * B, char * t);
 
-void recherche_doublons(Biblio * B);
+// void recherche_artiste(Biblio * B, char * a);
 
-CellMorceau * recherche_numero(Biblio * B, int n);
+// void affiche_morceau(CellMorceau * L);
+//
+// void affiche_morceau_avec_num(CellMorceau * L, int n);
+//
+// void libere_biblio(Biblio *B);
+//
+// void suppression_morceau_num(Biblio * B, int n);
+//
+// void suppression_morceau_titre(Biblio * B, char * t);
+//
+// void recherche_doublons(Biblio * B);
 
-CellMorceau * recherche_titre(Biblio * B, char * t);
-
-Biblio * liste_artiste(Biblio * B, char * a);
+//
+//
+// Biblio * affiche_artiste(Biblio * B, char * a);
 
 #endif/* biblio_liste_h */

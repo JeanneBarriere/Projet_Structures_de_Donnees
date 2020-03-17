@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
@@ -29,7 +28,7 @@ int main(int argc , const char * argv []) {
 	Biblio *biblio = charge_n_entrees(nomfic , nlignes);
 	affiche(biblio);
 
-	
+
 	int ch;
 	int n;
 	char * t;
@@ -75,7 +74,7 @@ int main(int argc , const char * argv []) {
 				break;
 		}
 	} while(ch != 0);
-	
+
 	//libere_biblio(biblio);
 	printf("Au revoir\n ");
 

@@ -47,10 +47,10 @@ void affiche_artiste(Biblio *B, char *artiste);
 //
 // void affiche_noeud_artiste(Noeud * n, char * artiste);
 
-// 
-// 
 //
-// 
+//
+//
+//
 
 // void affiche_artiste(Biblio *B, char *artiste);
 
