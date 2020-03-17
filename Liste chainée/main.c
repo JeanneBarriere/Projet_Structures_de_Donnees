@@ -65,6 +65,8 @@ int main(int argc , const char * argv []) {
 	int ch;
 	int n;
 	char * t;
+	int a = 256;
+	char* retour="\n";
 	do{
 		menu();
 		int lus = scanf("%d", &ch);
@@ -96,10 +98,10 @@ int main(int argc , const char * argv []) {
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char a[50];
-				fgets(a,50,stdin);
+				char art[50];
+				parse_string(f, &art, &a, *retour );
 				printf("%s\n", a);
-				recherche_artiste(biblio, a);
+				recherche_artiste(biblio, art);
 				break;
 			}
 			default:
