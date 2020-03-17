@@ -55,7 +55,7 @@ int main(int argc , const char * argv []) {
 			case 3:
 			{
 				printf("Quel titre ?\n");
-				char s[20] = "";
+				char s[20];
 				gets(s);
 				recherche_titre(biblio, s);
 				break;
@@ -63,7 +63,7 @@ int main(int argc , const char * argv []) {
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char a[50] = "";
+				char a[50];
 				gets(a);
 				printf("%s\n", a);
 				affiche_artiste(biblio, a);
