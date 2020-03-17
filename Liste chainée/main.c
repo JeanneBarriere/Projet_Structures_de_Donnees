@@ -101,7 +101,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char * art = (char *) malloc(sizeof(char *));
-				viderBuffer();
+				parse_char(stdin, *retour);
 				parse_string(stdin, &art, &a, *retour );
 				printf("%s\n", art);
 				recherche_artiste(biblio, art);
