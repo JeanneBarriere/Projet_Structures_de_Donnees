@@ -55,16 +55,16 @@ int main(int argc , const char * argv []) {
 			case 3:
 			{
 				printf("Quel titre ?\n");
-				char s[20] = "";
-				scanf("%19s", s);
+				char s[20];
+				gets(s);
 				recherche_titre(biblio, s);
 				break;
 			}
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char a[50] = "";
-				scanf("%49s", a);
+				char a[50];
+				gets(a);
 				printf("%s\n", a);
 				recherche_artiste(biblio, a);
 				break;
