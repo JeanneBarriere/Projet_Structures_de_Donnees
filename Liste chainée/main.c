@@ -60,15 +60,15 @@ int main(int argc , const char * argv []) {
 				recherche_titre(biblio, s);
 				break;
 			}
-	// // 		case 4:
-	// // 		{
-	// // 			printf("Quel artiste?\n");
-	// // 			char a[50] = "";
-	// // 			scanf("%49s", a);
-	// // 			printf("%s\n", a);
-	// // 			affiche_artiste(biblio, a);
-	// // 			break;
-	// // 		}
+			case 4:
+			{
+				printf("Quel artiste?\n");
+				char a[50] = "";
+				scanf("%49s", a);
+				printf("%s\n", a);
+				affiche_artiste(biblio, a);
+				break;
+			}
 			default:
 				ch = 0;
 				break;
