@@ -93,7 +93,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel titre ?\n");
 				char s[50];
 				void viderBuffer();
-				parse_string(f, &s, &a, *retour );
+				parse_string(stdin, &s, &a, *retour );
 				recherche_titre(biblio, s);
 				break;
 			}
@@ -101,7 +101,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char art[50];
-				parse_string(f, &art, &a, *retour );
+				parse_string(stdin, &art, &a, *retour );
 				printf("%s\n", art);
 				recherche_artiste(biblio, art);
 				break;
