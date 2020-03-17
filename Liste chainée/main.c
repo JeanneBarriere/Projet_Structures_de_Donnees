@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "biblio_liste.h"
+#include "parser.h"
 
 void menu() {
 
@@ -91,7 +92,8 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[50];
-				fgets(s,50,stdin);
+				void viderBuffer();
+				parse_string(f, &s, &a, *retour );
 				recherche_titre(biblio, s);
 				break;
 			}
