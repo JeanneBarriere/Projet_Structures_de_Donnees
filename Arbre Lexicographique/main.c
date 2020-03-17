@@ -56,7 +56,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[20] = "";
-				scanf("%19s", s);
+				gets(s);
 				recherche_titre(biblio, s);
 				break;
 			}
@@ -64,7 +64,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char a[50] = "";
-				scanf("%49s", a);
+				gets(a);
 				printf("%s\n", a);
 				affiche_artiste(biblio, a);
 				break;
