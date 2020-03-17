@@ -102,7 +102,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel artiste?\n");
 				char art[50];
 				parse_string(f, &art, &a, *retour );
-				printf("%s\n", a);
+				printf("%s\n", art);
 				recherche_artiste(biblio, art);
 				break;
 			}
