@@ -92,7 +92,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel titre ?\n");
 				char s[50];
-				void viderBuffer();
+				viderBuffer();
 				parse_string(stdin, &s, &a, *retour );
 				recherche_titre(biblio, s);
 				break;
@@ -101,6 +101,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel artiste?\n");
 				char * art = (char *) malloc(sizeof(char *));
+				viderBuffer();
 				parse_string(stdin, &art, &a, *retour );
 				printf("%s\n", art);
 				recherche_artiste(biblio, art);
