@@ -28,7 +28,7 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 			parse_char(f, TAB);
 
 			parse_string(f, &titre, TAILLE, TAB );
-			parse_char(f, *tab);
+			parse_char(f, TAB);
 
 			parse_string(f, &artiste, TAILLE, RETOUR );
 			parse_char(f, RETOUR);
