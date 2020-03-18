@@ -96,7 +96,7 @@ int main(int argc , const char * argv []) {
 				char * morceau = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
 				parse_string(stdin, &morceau, &taille, *retour );
-				suppression_morceau(morceau, biblio);
+				suppression_morceau(biblio, morceau);
 				free(morceau);
 				break;
 			}
