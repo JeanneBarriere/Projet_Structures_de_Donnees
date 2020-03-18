@@ -29,6 +29,8 @@ void recherche_titre(Biblio * B, char * t);
 
 void recherche_artiste(Biblio * B, char * a);
 
+Biblio *insertion_morceau(char * morceau, biblio * b);
+
 // void affiche_morceau(CellMorceau * L);
 //
 // void affiche_morceau_avec_num(CellMorceau * L, int n);

@@ -103,6 +103,26 @@ void recherche_artiste(Biblio * B, char * a){
 	}
 }
 
+Biblio *insertion_morceau(char * morceau, biblio * b){
+	int num;
+	char* titre = (char *) malloc(sizeof(char *));
+	char* artiste = (char *) malloc(sizeof(char *));
+	int a = 256;
+	char* tab="\t";
+	char* retour="\n";
+
+	parse_int(morceau, &num);
+	parse_char(morceau, *tab);
+
+	parse_string(morceau, &titre, &a, *tab );
+	parse_char(morceau, *tab);
+
+	parse_string(morceau, &artiste, &a, *retour );
+	parse_char(morceau, *retour);
+
+	insere(biblio, num, titre, artiste);
+}
+
 void affiche_morceau(CellMorceau * L){
 	if(L==NULL){
 		printf("Le morceau est vide !\n");

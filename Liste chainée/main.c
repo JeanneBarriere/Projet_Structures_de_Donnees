@@ -9,9 +9,11 @@ void menu() {
 	printf("Menu :\n");
 	printf("\t0−Sortie\n");
 	printf("\t1−Affichage\n");
-	printf("\t2−Affiche morceaux par numéro \n");
+	printf("\t2−Affiche morceau par numéro \n");
 	printf("\t3−Affiche morceau par titre \n");
 	printf("\t4−Affiche morceaux par artiste \n");
+	printf("\t4−Ajout d'un morceau \n");
+
 
 	printf("Votre choix:");
 }
@@ -72,6 +74,17 @@ int main(int argc , const char * argv []) {
 				parse_char(stdin, *retour);
 				parse_string(stdin, &artiste, &taille, *retour );
 				printf("%s\n", artiste);
+				recherche_artiste(biblio, artiste);
+				free(artiste);
+				break;
+			}
+			case 5:
+			{
+				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+				char * morceau = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &morceau, &taille, *retour );
+				printf("%s\n", morceau);
 				recherche_artiste(biblio, artiste);
 				free(artiste);
 				break;
