@@ -154,7 +154,7 @@ void recherche_doublons(Biblio * B){
 			}
 			l3=l3->suiv;
 		}
-		if(vis >= 2){
+		if(vis <= 2){
 				printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
 		}
 		vis=0;
