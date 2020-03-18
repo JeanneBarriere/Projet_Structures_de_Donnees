@@ -4,9 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TAILLE 256
-#define TAB * "\t"
-#define RETOUR * "\n"
+
 
 
 Biblio * nouvelle_biblio(void){

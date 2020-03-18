@@ -4,6 +4,11 @@
 #include "biblio_liste.h"
 #include "parser.h"
 
+
+#define TAILLE 256
+#define TAB * "\t"
+#define RETOUR * "\n"
+
 void menu() {
 
 	printf("Menu :\n");
