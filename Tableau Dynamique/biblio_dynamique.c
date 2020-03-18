@@ -64,8 +64,8 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 		realloc( B->T , 2*(B->capacite));
 		B->capacite = 2*(B->capacite);
 	 }
-	 B->T[(B->nE+1)].titre = titre;
-	 B->T[(B->nE+1)].artiste = artiste;
+	 B->T[(B->nE)].titre = titre;
+	 B->T[(B->nE)].artiste = artiste;
 	 B->T[(B->nE)].num = num;
 	 B->nE = B->nE+1;
 }
