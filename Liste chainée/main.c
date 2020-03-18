@@ -85,7 +85,7 @@ int main(int argc , const char * argv []) {
 				parse_char(stdin, *retour);
 				parse_string(stdin, &morceau, &taille, *retour );
 				printf("%s\n", morceau);
-				recherche_artiste(biblio, artiste);
+				insertion_morceau(morceau, biblio);
 				free(artiste);
 				break;
 			}

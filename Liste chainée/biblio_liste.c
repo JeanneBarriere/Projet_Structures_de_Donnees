@@ -103,7 +103,7 @@ void recherche_artiste(Biblio * B, char * a){
 	}
 }
 
-Biblio *insertion_morceau(char * morceau, biblio * b){
+Biblio *insertion_morceau(char * morceau, Biblio * b){
 	int num;
 	char* titre = (char *) malloc(sizeof(char *));
 	char* artiste = (char *) malloc(sizeof(char *));
