@@ -126,10 +126,10 @@ void suppression_morceau(Biblio * B, char * morceau){
 	char * artiste = strtok(NULL, tab);
 
 	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
-		printf("tets\n");
 				B->L=l2->suiv;
 				free(tmpL);
 				l2 = B->L;
+				B->nE=(B->nE)-1;
 			};
 
 	while (l2->suiv){
