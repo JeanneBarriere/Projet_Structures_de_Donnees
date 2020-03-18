@@ -4,6 +4,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+ Cette bibliothèque contient quelques fonctions qui permettent
+ de lire un fichier puis de le convertir en une liste chainee et qui permettent
+ ensuite de manipuler cette chaine.
+ */
+
+/*
+Cette fonction renvoie un pointeur une nouvelle Biblio
+ */
 Biblio * nouvelle_biblio(void){
 	Biblio *biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> L = NULL;
@@ -11,6 +20,12 @@ Biblio * nouvelle_biblio(void){
 	return biblio;
 }
 
+
+/*
+Cette fonction lit un fichier et créer une nouvelle biblio
+en y inserant les morceaux lus dans le fichier. Elle renvoie
+la biblio ainsi cree
+*/
 Biblio *charge_n_entrees(const char *nomfichier, int n){
 	FILE * f = fopen(nomfichier, "r");
 	Biblio * biblio = nouvelle_biblio();
@@ -39,14 +54,16 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 	return biblio;
 }
 
+/*
+Cette fonciton insere dans une biblio de nouveau morceaux
+L'insertion se fait en tete de liste.
+ */
 void insere(Biblio *B, int num, char *titre, char *artiste){
-
 	CellMorceau * nouv = (CellMorceau *) malloc(sizeof(CellMorceau));
 	nouv -> num = num;
 	nouv -> titre = titre;
 	nouv -> artiste = artiste ;
 	nouv -> suiv = NULL;
-
 
 	if (B->L== NULL){
 		B -> L = nouv;
@@ -59,6 +76,8 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 	 }
 }
 
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio */
 void affiche(Biblio *B){
 	if(B->L==NULL){
 		printf("La liste est vide !\n");
@@ -72,6 +91,8 @@ void affiche(Biblio *B){
 	}
 }
 
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour numero le numero passe en argument */
 void recherche_numero(Biblio * B, int n){
 	CellMorceau * l2 = B->L;
 	while (l2){
@@ -82,6 +103,8 @@ void recherche_numero(Biblio * B, int n){
 	}
 }
 
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour titre le titre passe en argument */
 void recherche_titre(Biblio * B, char * t){
 	CellMorceau * l2 = B->L;
 	while (l2){
@@ -92,6 +115,8 @@ void recherche_titre(Biblio * B, char * t){
 	}
 }
 
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour artiste le artiste passe en argument */
 void recherche_artiste(Biblio * B, char * a){
 	CellMorceau * l2 = B->L;
 	while (l2){
@@ -102,6 +127,10 @@ void recherche_artiste(Biblio * B, char * a){
 	}
 }
 
+/* Cette fonction insere un nouveau morceau
+dans la biblio. On suppose comme argument morceau
+une chaine de caractere avec le numero, le titre
+et l'artiste separer par des tabulation */
 void insertion_morceau(char * morceau, Biblio * b){
 	int num;
 	char* titre = (char *) malloc(sizeof(char *));
@@ -115,6 +144,11 @@ void insertion_morceau(char * morceau, Biblio * b){
 	insere(b, num, titre, artiste);
 }
 
+
+/* Cette fonction supprime un nouveau morceau
+dans la biblio. On suppose comme argument morceau
+une chaine de caractere avec le numero, le titre
+et l'artiste separer par des tabulation */
 void suppression_morceau(Biblio * B, char * morceau){
 	CellMorceau * tmpL = B->L;
 	CellMorceau * l2 = B->L;
@@ -143,6 +177,8 @@ void suppression_morceau(Biblio * B, char * morceau){
 	}
 }
 
+/* Cette fonction affiche une liste comprenant les morceaux
+qui n’apparaissent qu’une fois dans la biblioth`eque. */
 void recherche_doublons(Biblio * B){
 	CellMorceau * l2 = B->L;
 	while (l2){
@@ -162,6 +198,7 @@ void recherche_doublons(Biblio * B){
 	}
 }
 
+/* Cette fonction libere la bibliothèque */
 void libere_biblio(Biblio * b){
 	CellMorceau * l2 = b->L;
 	while (l2) {
@@ -172,109 +209,4 @@ void libere_biblio(Biblio * b){
 		l2 = tmp;
 	}
 	free(b);
-}
-
-void affiche_morceau(CellMorceau * L){
-	if(L==NULL){
-		printf("Le morceau est vide !\n");
-		return;
-	}
-	printf("%d\t%s\t%s\n", L->num, L->titre, L->artiste);
-}
-
-void affiche_morceau_avec_num(CellMorceau * L, int n){
-	if(L==NULL){
-		printf("Le morceau est vide !\n");
-		return;
-	}
-	printf("%d\t%s\t%s\n", n, L->titre, L->artiste);
-}
-
-void suppression_morceau_num(Biblio * B, int n){
-	CellMorceau * tmpL = B->L;
-	CellMorceau * l2 = B->L;
-	int suppr = 0;
-
-	if (l2->num == n){
-				B->L=B->L->suiv;
-				free(tmpL);
-				B->L->num=0;
-				suppr=1;
-				l2 = B->L;
-			};
-
-	while (l2->suiv){
-		if(l2->suiv->num==n){
-			CellMorceau * l3 = l2->suiv;
-			l2->suiv = l3->suiv;
-			free(l3);
-			suppr = 1;
-		}
-		if (suppr ==1){
-			l2->suiv->num=(l2->suiv->num)-1;
-		}
-		l2=l2->suiv;
-	}
-	B->nE=(B->nE)-1;
-}
-
-void suppression_morceau_num_ds_liste(CellMorceau * L, int n){
-	CellMorceau * tmpL = L;
-	CellMorceau * l2 = L;
-	int suppr = 0;
-
-	if (l2->num == n){
-				L=L->suiv;
-				free(tmpL);
-				L->num=0;
-				suppr=1;
-				l2 = L;
-			};
-
-	while (l2->suiv){
-		if(l2->suiv->num==n && l2->suiv->suiv!=NULL){
-			CellMorceau * l3 = l2->suiv;
-			l2->suiv = l3->suiv;
-			if (l3->suiv !=NULL)
-			{
-				free(l3);
-			}
-
-			suppr = 1;
-		}
-		if (suppr==1 && (l2->suiv)!=NULL){
-
-			l2->suiv->num=(l2->suiv->num)-1;
-		}
-		l2=l2->suiv;
-
-	}
-}
-
-void suppression_morceau_titre(Biblio * B, char * t){
-	CellMorceau * tmpL = B->L;
-	CellMorceau * l2 = B->L;
-	int suppr = 0;
-
-	if((strcmp(l2->titre, t)==0)){
-				B->L=B->L->suiv;
-				free(tmpL);
-				B->L->num=0;
-				suppr=1;
-				l2 = B->L;
-			};
-
-	while (l2->suiv){
-		if((strcmp(l2->suiv->titre, t)==0)){
-			CellMorceau * l3 = l2->suiv;
-			l2->suiv = l3->suiv;
-			free(l3);
-			suppr = 1;
-		}
-		if (suppr ==1){
-			l2->suiv->num=(l2->suiv->num)-1;
-		}
-		l2=l2->suiv;
-	}
-	B->nE=(B->nE)-1;
 }
