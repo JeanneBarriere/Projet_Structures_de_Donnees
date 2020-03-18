@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define TAILLE 256
+#define TAB "\t"
+#define RETOUR "\n"
+
+
 Biblio * nouvelle_biblio(void){
 	Biblio *biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> L = NULL;
@@ -25,7 +30,7 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 			char* retour="\n";
 
 			parse_int(f, &num);
-			parse_char(f, *tab);
+			parse_char(f, TAB);
 
 			parse_string(f, &titre, &a, *tab );
 			parse_char(f, *tab);
@@ -115,6 +120,44 @@ void insertion_morceau(char * morceau, Biblio * b){
 	artiste = strtok(NULL, tab);
 
 	insere(b, num, titre, artiste);
+}
+
+void suppression_morceau_num(Biblio * B, char * morceau){
+	CellMorceau * tmpL = B->L;
+	CellMorceau * l2 = B->L;
+	int suppr = 0;
+
+	int num;
+	char* titre = (char *) malloc(sizeof(char *));
+	char* artiste = (char *) malloc(sizeof(char *));
+	int a = 256;
+	char* tab="\t";
+
+	num = atoi(strtok(morceau, tab));
+	titre = strtok(NULL, tab);
+	artiste = strtok(NULL, tab);
+
+	if (l2->num == n){
+				B->L=B->L->suiv;
+				free(tmpL);
+				B->L->num=0;
+				suppr=1;
+				l2 = B->L;
+			};
+
+	while (l2->suiv){
+		if(l2->suiv->num==n){
+			CellMorceau * l3 = l2->suiv;
+			l2->suiv = l3->suiv;
+			free(l3);
+			suppr = 1;
+		}
+		if (suppr ==1){
+			l2->suiv->num=(l2->suiv->num)-1;
+		}
+		l2=l2->suiv;
+	}
+	B->nE=(B->nE)-1;
 }
 
 void affiche_morceau(CellMorceau * L){
