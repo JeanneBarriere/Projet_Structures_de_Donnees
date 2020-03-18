@@ -86,7 +86,7 @@ int main(int argc , const char * argv []) {
 				parse_string(stdin, &morceau, &taille, *retour );
 				printf("%s\n", morceau);
 				insertion_morceau(morceau, biblio);
-				free(artiste);
+				free(morceau);
 				break;
 			}
 			default:
