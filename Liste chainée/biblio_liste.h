@@ -1,7 +1,10 @@
 /* biblio_liste.h */
-
 #ifndef biblio_liste_h
 #define biblio_liste_h
+
+#define TAILLE 256
+#define TAB * "\t"
+#define RETOUR * "\n"
 
 typedef struct CellMorceau {
 	struct CellMorceau *suiv ;
