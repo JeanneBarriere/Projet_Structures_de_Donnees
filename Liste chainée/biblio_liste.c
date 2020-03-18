@@ -123,11 +123,11 @@ void suppression_morceau(Biblio * B, char * morceau){
 	char* tab="\t";
 
 	int num = atoi(strtok(morceau, tab));
-	printf("test num\n");
+	printf("%d\n", &num);
 	char * titre = strtok(NULL, tab);
-	printf("test titre\n");
+	printf("test titre %s\n", titre);
 	char * artiste = strtok(NULL, tab);
-	printf("test artiste\n");
+	printf("test artiste %s\n", artiste);
 
 	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
 		printf("tets\n");
