@@ -4,9 +4,6 @@
 #include "biblio_liste.h"
 #include "parser.h"
 
-
-
-
 void menu() {
 
 	printf("Menu :\n");
@@ -38,7 +35,8 @@ int main(int argc , const char * argv []) {
 	int ch;
 	int n;
 	int taille = 256;
-	char* retour="\n";
+	char * tab = "\t";
+	char * retour="\n";
 	do{
 		menu();
 		int lus = scanf("%d", &ch);
@@ -64,7 +62,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel titre ?\n");
 				char * titre = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
-				parse_string(stdin, &titre, TAILLE, retour);
+				parse_string(stdin, &titre, &taille, &retour);
 				printf("%s\n", titre);
 				recherche_titre(biblio, titre);
 				free(titre);
@@ -75,7 +73,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel artiste?\n");
 				char * artiste = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
-				parse_string(stdin, &artiste, &taille, *retour );
+				parse_string(stdin, &artiste, &taille, &retour );
 				printf("%s\n", artiste);
 				recherche_artiste(biblio, artiste);
 				free(artiste);
@@ -86,7 +84,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
 				char * morceau = (char *) malloc(sizeof(char *));
 				parse_char(stdin, RETOUR);
-				parse_string(stdin, &morceau, &taille, *retour );
+				parse_string(stdin, &morceau, &taille, &retour );
 				printf("%s\n", morceau);
 				insertion_morceau(morceau, biblio);
 				free(morceau);
