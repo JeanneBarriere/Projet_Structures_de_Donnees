@@ -17,7 +17,7 @@ Biblio * nouvelle_biblio(void){
 	Biblio * biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> capacite = 25;
 	biblio -> T = T;
-	biblio -> nE = 0;
+	biblio -> nE = 4;
 	return biblio;
 }
 
@@ -82,5 +82,105 @@ void affiche(Biblio *B){
 		for (i;i<(B->nE);i++){
 			printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
 		}
+	}
+}
+
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour numero le numero passe en argument */
+void recherche_numero(Biblio * B, int n){
+	if(B->nE==0){
+		printf("La liste est vide !\n");
+		return;
+	}else{
+		int i=0;
+		Morceau * T = B->T;
+		for (i;i<(B->nE);i++){
+			if(B->T[i].num==n){
+				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+			}
+		}
+	}
+}
+
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour titre le titre passe en argument */
+void recherche_titre(Biblio * B, char * t){
+	if(B->nE==0){
+		printf("La liste est vide !\n");
+		return;
+	}else{
+		int i=0;
+		Morceau * T = B->T;
+		for (i;i<(B->nE);i++){
+			if((strcmp(B->T[i].titre, t)==0)){
+				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+			}
+		}
+	}
+}
+
+/* Cette fonction affiche tout les morceaux contenu dans
+une biblio avec pour artiste le artiste passe en argument */
+void recherche_artiste(Biblio * B, char * a){
+	if(B->nE==0){
+		printf("La liste est vide !\n");
+		return;
+	}else{
+		int i=0;
+		Morceau * T = B->T;
+		for (i;i<(B->nE);i++){
+			if((strcmp(B->T[i].artiste, a)==0)){
+				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+			}
+		}
+	}
+}
+
+/* Cette fonction insere un nouveau morceau
+dans la biblio. On suppose comme argument morceau
+une chaine de caractere avec le numero, le titre
+et l'artiste separer par des tabulation */
+void insertion_morceau(char * morceau, Biblio * b){
+	int num;
+	char* titre = (char *) malloc(sizeof(char *));
+	char* artiste = (char *) malloc(sizeof(char *));
+	char * tab = "\t";
+
+	num = atoi(strtok(morceau, tab));
+	titre = strtok(NULL, tab);
+	artiste = strtok(NULL, tab);
+
+	insere(b, num, titre, artiste);
+}
+
+/* Cette fonction supprime un nouveau morceau
+dans la biblio. On suppose comme argument morceau
+une chaine de caractere avec le numero, le titre
+et l'artiste separer par des tabulation */
+void suppression_morceau(Biblio * B, char * morceau){
+	CellMorceau * tmpL = B->L;
+	CellMorceau * l2 = B->L;
+	int suppr = 0;
+	char* tab="\t";
+
+	int num = atoi(strtok(morceau, tab));
+	char * titre = strtok(NULL, tab);
+	char * artiste = strtok(NULL, tab);
+
+	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
+				B->L=l2->suiv;
+				free(tmpL);
+				l2 = B->L;
+				B->nE=(B->nE)-1;
+			};
+
+	while (l2->suiv){
+			CellMorceau * l3 = l2->suiv;
+			if (l3->num == num && (strcmp(l3->titre, titre)==0) && (strcmp(l3->artiste, artiste)==0) ){
+				l2->suiv = l3->suiv;
+				free(l3);
+				B->nE=(B->nE)-1;
+		}
+		l2=l2->suiv;
 	}
 }
