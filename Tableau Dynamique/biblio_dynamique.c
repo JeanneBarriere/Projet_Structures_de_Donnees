@@ -66,7 +66,7 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 	 }
 	 B->T[(B->nE+1)].titre = titre;
 	 B->T[(B->nE+1)].artiste = artiste;
-	 B->T[(B->nE+1)].num = num;
+	 B->T[(B->nE)].num = num;
 	 B->nE = B->nE+1;
 }
 
