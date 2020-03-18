@@ -32,6 +32,8 @@ void insertion_morceau(char * morceau, Biblio * b);
 
 void suppression_morceau(Biblio * B, char * morceau);
 
+void recherche_doublons(Biblio * B);
+
 // void affiche_morceau(CellMorceau * L);
 //
 // void affiche_morceau_avec_num(CellMorceau * L, int n);
@@ -42,7 +44,7 @@ void libere_biblio(Biblio *B);
 //
 // void suppression_morceau_titre(Biblio * B, char * t);
 //
-// void recherche_doublons(Biblio * B);
+//
 
 //
 //

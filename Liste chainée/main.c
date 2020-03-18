@@ -14,6 +14,7 @@ void menu() {
 	printf("\t4−Affiche morceaux par artiste \n");
 	printf("\t5−Ajout d'un morceau \n");
 	printf("\t6−Suppression d'un morceau \n");
+	printf("\t7−Suppression d'un morceau \n");
 
 
 	printf("Votre choix:");
@@ -98,6 +99,11 @@ int main(int argc , const char * argv []) {
 				parse_string(stdin, &morceau, &taille, *retour );
 				suppression_morceau(biblio, morceau);
 				free(morceau);
+				break;
+			}
+			case 7:
+			{
+				recherche_doublons(biblio);
 				break;
 			}
 			default:
