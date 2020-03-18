@@ -149,8 +149,8 @@ void recherche_doublons(Biblio * B){
 		int vis =0;
 		CellMorceau * l3=B->L;
 		while(l3){
+			printf("test\n" );
 			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num != l3->num){
-				printf("test\n" );
 				vis=1;
 			}
 			l3=l3->suiv;
