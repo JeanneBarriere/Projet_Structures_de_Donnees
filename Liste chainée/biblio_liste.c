@@ -129,7 +129,6 @@ void suppression_morceau(Biblio * B, char * morceau){
 		printf("tets\n");
 				B->L=l2->suiv;
 				free(tmpL);
-				B->L->num=0;
 				l2 = B->L;
 			};
 
