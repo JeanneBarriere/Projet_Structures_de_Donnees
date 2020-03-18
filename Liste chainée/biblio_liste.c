@@ -4,9 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
-
 Biblio * nouvelle_biblio(void){
 	Biblio *biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> L = NULL;
