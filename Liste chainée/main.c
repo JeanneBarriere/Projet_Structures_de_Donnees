@@ -14,7 +14,7 @@ void menu() {
 	printf("\t4−Affiche morceaux par artiste \n");
 	printf("\t5−Ajout d'un morceau \n");
 	printf("\t6−Suppression d'un morceau \n");
-	printf("\t7−Suppression d'un morceau \n");
+	printf("\t7−Affichage sans doublons \n");
 
 
 	printf("Votre choix:");
