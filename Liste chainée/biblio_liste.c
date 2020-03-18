@@ -130,11 +130,11 @@ void suppression_morceau(Biblio * B, char * morceau){
 				B->L=B->L->suiv;
 				free(tmpL);
 				B->L->num=0;
-				suppr=1;
 				l2 = B->L;
 			};
 
 	while (l2->suiv){
+		printf("test avant\n");
 			if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
 			CellMorceau * l3 = l2->suiv;
 			l2->suiv = l3->suiv;
@@ -142,6 +142,7 @@ void suppression_morceau(Biblio * B, char * morceau){
 			B->nE=(B->nE)-1;
 		}
 		l2=l2->suiv;
+		printf("test fin\n" );
 	}
 }
 
