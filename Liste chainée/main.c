@@ -12,7 +12,7 @@ void menu() {
 	printf("\t2−Affiche morceau par numéro \n");
 	printf("\t3−Affiche morceau par titre \n");
 	printf("\t4−Affiche morceaux par artiste \n");
-	printf("\t4−Ajout d'un morceau \n");
+	printf("\t5−Ajout d'un morceau \n");
 
 
 	printf("Votre choix:");

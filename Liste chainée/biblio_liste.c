@@ -109,16 +109,10 @@ Biblio *insertion_morceau(char * morceau, Biblio * b){
 	char* artiste = (char *) malloc(sizeof(char *));
 	int a = 256;
 	char* tab="\t";
-	char* retour="\n";
 
-	parse_int(morceau, &num);
-	parse_char(morceau, *tab);
-
-	parse_string(morceau, &titre, &a, *tab );
-	parse_char(morceau, *tab);
-
-	parse_string(morceau, &artiste, &a, *retour );
-	parse_char(morceau, *retour);
+	num = (int) strtok(morceau, tab);
+	titre = strtok(NULL, tab)
+	artiste = strtok(NULL, tab)
 
 	insere(b, num, titre, artiste);
 }
