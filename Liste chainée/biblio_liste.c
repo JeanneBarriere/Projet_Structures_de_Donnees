@@ -116,7 +116,7 @@ void insertion_morceau(char * morceau, Biblio * b){
 	insere(b, num, titre, artiste);
 }
 
-void suppression_morceau_num(Biblio * B, char * morceau){
+void suppression_morceau(Biblio * B, char * morceau){
 	CellMorceau * tmpL = B->L;
 	CellMorceau * l2 = B->L;
 	int suppr = 0;
