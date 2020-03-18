@@ -143,6 +143,37 @@ void suppression_morceau(Biblio * B, char * morceau){
 	}
 }
 
+void recherche_doublons(Biblio * B){
+	CellMorceau * l2 = B->L;
+	while (l2){
+		int vis =0;
+		CellMorceau * l3=B->L;
+		while(l3){
+			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num != l3->num){
+				vis=1;
+			}
+			l3=l3->suiv;
+		}
+		if(vis != 1){
+				printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
+		}
+		vis=0;
+		l2=l2->suiv;
+	}
+}
+
+void libere_biblio(Biblio * b){
+	CellMorceau * l2 = b->L;
+	while (l2) {
+		CellMorceau * tmp = l2->suiv;
+		free(l2->artiste);
+		free(l2->titre);
+		free(l2);
+		l2 = tmp;
+	}
+	free(b);
+}
+
 void affiche_morceau(CellMorceau * L){
 	if(L==NULL){
 		printf("Le morceau est vide !\n");
@@ -246,37 +277,4 @@ void suppression_morceau_titre(Biblio * B, char * t){
 		l2=l2->suiv;
 	}
 	B->nE=(B->nE)-1;
-}
-
-void recherche_doublons(Biblio * B){
-	CellMorceau * l2 = B->L;
-	int i=0;
-	while (l2){
-		int vis =0;
-		CellMorceau * l3=B->L;
-		while(l3){
-			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num != l3->num){
-				vis=1;
-			}
-			l3=l3->suiv;
-		}
-		if(vis != 1){
-			affiche_morceau_avec_num(l2, i);
-			i++;
-		}
-		vis=0;
-		l2=l2->suiv;
-	}
-}
-
-void libere_biblio(Biblio * b){
-	CellMorceau * l2 = b->L;
-	while (l2) {
-		CellMorceau * tmp = l2->suiv;
-		free(l2->artiste);
-		free(l2->titre);
-		free(l2);
-		l2 = tmp;
-	}
-	free(b);
 }
