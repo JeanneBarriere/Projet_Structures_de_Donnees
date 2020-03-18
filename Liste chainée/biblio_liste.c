@@ -126,7 +126,7 @@ void suppression_morceau_num(Biblio * B, char * morceau){
 	char * titre = strtok(NULL, tab);
 	char * artiste = strtok(NULL, tab);
 
-	if (l2->num == n){
+	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
 				B->L=B->L->suiv;
 				free(tmpL);
 				B->L->num=0;
