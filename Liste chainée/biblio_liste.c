@@ -25,13 +25,13 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 			int taille = 256;
 
 			parse_int(f, &num);
-			parse_char(f, &tab);
+			parse_char(f, tab);
 			printf("test\n" );
-			parse_string(f, &titre, taille, &tab );
-			parse_char(f, &tab);
+			parse_string(f, &titre, taille, tab );
+			parse_char(f, tab);
 
-			parse_string(f, &artiste, taille, &retour );
-			parse_char(f, &retour);
+			parse_string(f, &artiste, taille, retour );
+			parse_char(f, retour);
 
 			insere(biblio, num, titre, artiste);
 		}
@@ -109,9 +109,9 @@ void insertion_morceau(char * morceau, Biblio * b){
 	char* artiste = (char *) malloc(sizeof(char *));
 	char * tab = "\t";
 
-	num = atoi(strtok(morceau, &tab));
-	titre = strtok(NULL, &tab);
-	artiste = strtok(NULL, &tab);
+	num = atoi(strtok(morceau, tab));
+	titre = strtok(NULL, tab);
+	artiste = strtok(NULL, tab);
 
 	insere(b, num, titre, artiste);
 }
