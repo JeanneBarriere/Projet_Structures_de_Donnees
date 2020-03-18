@@ -1,17 +1,21 @@
-
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "biblio.h"
-#include "biblio_liste.h"
-#include "biblio_arbrelex.h"
+#include "biblio_dynamique.h"
+#include "parser.h"
 
 void menu() {
 
 	printf("Menu :\n");
 	printf("\t0−Sortie\n");
 	printf("\t1−Affichage\n");
-	printf("\t2−Recherche morceaux uniques \n");
+	printf("\t2−Affiche morceau par numéro \n");
+	printf("\t3−Affiche morceau par titre \n");
+	printf("\t4−Affiche morceaux par artiste \n");
+	printf("\t5−Ajout d'un morceau \n");
+	printf("\t6−Suppression d'un morceau \n");
+	printf("\t7−Affichage sans doublons \n");
+
 
 	printf("Votre choix:");
 }
@@ -24,31 +28,17 @@ int main(int argc , const char * argv []) {
 
 	const char *nomfic = argv [1];
 	int nlignes = atoi(argv [2]);
-	char * titre = "Bright";
-	char * artiste = "Hey";
 
 	printf("Lecture:\n");
 	Biblio *biblio = charge_n_entrees(nomfic , nlignes);
-	// CellMorceau *c1 = recherche_numero(biblio , 3);
-	// affiche_morceau(c1);
-	// CellMorceau *c2 = recherche_titre(biblio , titre);
-	// 	affiche_morceau(c2);
-	// Biblio * b2 = liste_artiste(biblio , artiste);
-	// 	affiche(b2);
-	
-	// suppression_morceau_num(biblio , 0);
-	// affiche(biblio);
-
-	// suppression_morceau_titre(biblio , titre);
-	// affiche(biblio);
-	
-	recherche_doublons(biblio);
-
-	printf("r'eaffiche biblio\n");
 	affiche(biblio);
 
 
 	int ch;
+	int n;
+	int taille = 256;
+	char * tab = "\t";
+	char * retour="\n";
 	do{
 		menu();
 		int lus = scanf("%d", &ch);
@@ -62,20 +52,67 @@ int main(int argc , const char * argv []) {
 				affiche(biblio);
 				break;
 			}
-			case 2:
-			{
-				//Biblio *Bunique = uniques(biblio);
-				//affiche(Bunique);
-				//libere_biblio(Bunique);
-				break;
-			}
+			// case 2:
+			// {
+			// 	printf("Quel numero ?\n");
+			// 	scanf("%d", &n);
+			// 	recherche_numero(biblio, n);
+			// 	break;
+			// }
+			// case 3:
+			// {
+			// 	printf("Quel titre ?\n");
+			// 	char * titre = (char *) malloc(sizeof(char *));
+			// 	parse_char(stdin, *retour);
+			// 	parse_string(stdin, &titre, &taille, *retour);
+			// 	recherche_titre(biblio, titre);
+			// 	free(titre);
+			// 	break;
+			// }
+			// case 4:
+			// {
+			// 	printf("Quel artiste?\n");
+			// 	char * artiste = (char *) malloc(sizeof(char *));
+			// 	parse_char(stdin, *retour);
+			// 	parse_string(stdin, &artiste, &taille, *retour );
+			// 	recherche_artiste(biblio, artiste);
+			// 	free(artiste);
+			// 	break;
+			// }
+			// case 5:
+			// {
+			//
+			// 	printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+			// 	char * morceau = (char *) malloc(sizeof(char *));
+			// 	parse_char(stdin, *retour);
+			// 	parse_string(stdin, &morceau, &taille, *retour );
+			// 	insertion_morceau(morceau, biblio);
+			// 	free(morceau);
+			// 	break;
+			// }
+			// case 6:
+			// {
+			//
+			// 	printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+			// 	char * morceau = (char *) malloc(sizeof(char *));
+			// 	parse_char(stdin, *retour);
+			// 	parse_string(stdin, &morceau, &taille, *retour );
+			// 	suppression_morceau(biblio, morceau);
+			// 	free(morceau);
+			// 	break;
+			// }
+			// case 7:
+			// {
+			// 	recherche_doublons(biblio);
+			// 	break;
+			// }
 			default:
 				ch = 0;
 				break;
 		}
 	} while(ch != 0);
 
-	//libere_biblio(biblio);
+	// libere_biblio(biblio);
 	printf("Au revoir\n ");
 
 	return 0;
