@@ -6,7 +6,7 @@
 
 #define TAILLE 256
 #define TAB * "\t"
-#define RETOUR "\n"
+#define RETOUR * "\n"
 
 
 Biblio * nouvelle_biblio(void){
@@ -25,18 +25,15 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 			int num;
 			char* titre = (char *) malloc(sizeof(char *));
 			char* artiste = (char *) malloc(sizeof(char *));
-			int a = 256;
-			char* tab="\t";
-			char* retour="\n";
 
 			parse_int(f, &num);
 			parse_char(f, TAB);
 
-			parse_string(f, &titre, &a, *tab );
+			parse_string(f, &titre, TAILLE, TAB );
 			parse_char(f, *tab);
 
-			parse_string(f, &artiste, &a, *retour );
-			parse_char(f, *retour);
+			parse_string(f, &artiste, TAILLE, RETOUR );
+			parse_char(f, RETOUR);
 
 			insere(biblio, num, titre, artiste);
 		}
@@ -112,12 +109,10 @@ void insertion_morceau(char * morceau, Biblio * b){
 	int num;
 	char* titre = (char *) malloc(sizeof(char *));
 	char* artiste = (char *) malloc(sizeof(char *));
-	int a = 256;
-	char* tab="\t";
 
-	num = atoi(strtok(morceau, tab));
-	titre = strtok(NULL, tab);
-	artiste = strtok(NULL, tab);
+	num = atoi(strtok(morceau, TAB));
+	titre = strtok(NULL, TAB);
+	artiste = strtok(NULL, TAB);
 
 	insere(b, num, titre, artiste);
 }

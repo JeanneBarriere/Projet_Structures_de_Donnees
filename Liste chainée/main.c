@@ -61,7 +61,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel titre ?\n");
 				char * titre = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
-				parse_string(stdin, &titre, &taille, *retour );
+				parse_string(stdin, &titre, TAILLE, RETOUR);
 				printf("%s\n", titre);
 				recherche_titre(biblio, titre);
 				free(titre);
@@ -82,7 +82,7 @@ int main(int argc , const char * argv []) {
 			{
 				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
 				char * morceau = (char *) malloc(sizeof(char *));
-				parse_char(stdin, *retour);
+				parse_char(stdin, RETOUR);
 				parse_string(stdin, &morceau, &taille, *retour );
 				printf("%s\n", morceau);
 				insertion_morceau(morceau, biblio);
