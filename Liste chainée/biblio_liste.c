@@ -151,11 +151,11 @@ void recherche_doublons(Biblio * B){
 		while(l3){
 			if (((strcmp(l2->artiste, l3->artiste))==0)&&((strcmp(l2->titre, l3->titre))==0)&&l2->num == l3->num){
 				printf("test\n");
-				vis=1;
+				vis=vis+1;
 			}
 			l3=l3->suiv;
 		}
-		if(vis != 1){
+		if(vis >= 2){
 				printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
 		}
 		vis=0;
