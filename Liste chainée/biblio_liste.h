@@ -30,7 +30,7 @@ void recherche_artiste(Biblio * B, char * a);
 
 void insertion_morceau(char * morceau, Biblio * b);
 
-void suppression_morceau(char * morceau, Biblio * b);
+void suppression_morceau(Biblio * B, char * morceau);
 
 // void affiche_morceau(CellMorceau * L);
 //
