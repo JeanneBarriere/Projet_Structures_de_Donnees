@@ -111,8 +111,8 @@ Biblio *insertion_morceau(char * morceau, Biblio * b){
 	char* tab="\t";
 
 	num = (int) strtok(morceau, tab);
-	titre = strtok(NULL, tab)
-	artiste = strtok(NULL, tab)
+	titre = strtok(NULL, tab);
+	artiste = strtok(NULL, tab);
 
 	insere(b, num, titre, artiste);
 }
