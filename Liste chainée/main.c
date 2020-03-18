@@ -16,39 +16,6 @@ void menu() {
 	printf("Votre choix:");
 }
 
-void viderBuffer()
-{
-    int c = 0;
-    while (c != EOF)
-    {
-        c = getchar();
-    }
-}
-
-int lire(char *chaine, int longueur)
-{
-    char *positionEntree = NULL;
-
-    if (fgets(chaine, longueur, stdin) != NULL)
-    {
-        positionEntree = strchr(chaine, '\n');
-        if (positionEntree != NULL)
-        {
-            *positionEntree = '\0';
-        }
-        else
-        {
-            viderBuffer();
-        }
-        return 1;
-    }
-    else
-    {
-        viderBuffer();
-        return 0;
-    }
-}
-
 int main(int argc , const char * argv []) {
 	if(argc != 3){
 		printf(" Erreur format : %s <NomFichierBiblio.txt> <NbLigneALire> ",argv[0]);
@@ -65,8 +32,7 @@ int main(int argc , const char * argv []) {
 
 	int ch;
 	int n;
-	char * t;
-	int a = 256;
+	int taille = 256;
 	char* retour="\n";
 	do{
 		menu();
@@ -91,20 +57,23 @@ int main(int argc , const char * argv []) {
 			case 3:
 			{
 				printf("Quel titre ?\n");
-				char s[50];
-				viderBuffer();
-				parse_string(stdin, &s, &a, *retour );
-				recherche_titre(biblio, s);
+				char * titre = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &titre, &taille, *retour );
+				printf("%s\n", titre);
+				recherche_titre(biblio, titre);
+				free(titre);
 				break;
 			}
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char * art = (char *) malloc(sizeof(char *));
+				char * artiste = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
-				parse_string(stdin, &art, &a, *retour );
-				printf("%s\n", art);
-				recherche_artiste(biblio, art);
+				parse_string(stdin, &artiste, &taille, *retour );
+				printf("%s\n", artiste);
+				recherche_artiste(biblio, artiste);
+				free(artiste);
 				break;
 			}
 			default:
