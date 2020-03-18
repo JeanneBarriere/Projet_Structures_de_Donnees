@@ -135,7 +135,7 @@ void suppression_morceau_num(Biblio * B, char * morceau){
 			};
 
 	while (l2->suiv){
-		if(l2->suiv->num==n){
+			if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
 			CellMorceau * l3 = l2->suiv;
 			l2->suiv = l3->suiv;
 			free(l3);
