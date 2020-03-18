@@ -26,7 +26,7 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 
 			parse_int(f, &num);
 			parse_char(f, TAB);
-
+			printf("test\n" );
 			parse_string(f, &titre, TAILLE, TAB );
 			parse_char(f, TAB);
 
