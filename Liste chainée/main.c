@@ -64,7 +64,7 @@ int main(int argc , const char * argv []) {
 				printf("Quel titre ?\n");
 				char * titre = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
-				parse_string(stdin, &titre, TAILLE, RETOUR);
+				parse_string(stdin, &titre, TAILLE, retour);
 				printf("%s\n", titre);
 				recherche_titre(biblio, titre);
 				free(titre);
