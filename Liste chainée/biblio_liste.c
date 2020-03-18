@@ -26,7 +26,6 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 
 			parse_int(f, &num);
 			parse_char(f, *tab);
-			printf("test\n" );
 			parse_string(f, &titre, &taille, *tab );
 			parse_char(f, *tab);
 
@@ -123,15 +122,12 @@ void suppression_morceau(Biblio * B, char * morceau){
 	char* tab="\t";
 
 	int num = atoi(strtok(morceau, tab));
-	printf("%d\n", num);
 	char * titre = strtok(NULL, tab);
-	printf("test titre %s\n", titre);
 	char * artiste = strtok(NULL, tab);
-	printf("test artiste %s\n", artiste);
 
 	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
 		printf("tets\n");
-				B->L=B->L->suiv;
+				B->L=l2->suiv;
 				free(tmpL);
 				B->L->num=0;
 				l2 = B->L;
