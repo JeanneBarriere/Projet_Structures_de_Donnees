@@ -13,6 +13,7 @@ void menu() {
 	printf("\t3−Affiche morceau par titre \n");
 	printf("\t4−Affiche morceaux par artiste \n");
 	printf("\t5−Ajout d'un morceau \n");
+	printf("\t6−Suppression d'un morceau \n");
 
 
 	printf("Votre choix:");
@@ -63,7 +64,6 @@ int main(int argc , const char * argv []) {
 				char * titre = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
 				parse_string(stdin, &titre, &taille, *retour);
-				printf("%s\n", titre);
 				recherche_titre(biblio, titre);
 				free(titre);
 				break;
@@ -74,7 +74,6 @@ int main(int argc , const char * argv []) {
 				char * artiste = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
 				parse_string(stdin, &artiste, &taille, *retour );
-				printf("%s\n", artiste);
 				recherche_artiste(biblio, artiste);
 				free(artiste);
 				break;
@@ -86,8 +85,18 @@ int main(int argc , const char * argv []) {
 				char * morceau = (char *) malloc(sizeof(char *));
 				parse_char(stdin, *retour);
 				parse_string(stdin, &morceau, &taille, *retour );
-				printf("%s\n", morceau);
 				insertion_morceau(morceau, biblio);
+				free(morceau);
+				break;
+			}
+			case 6:
+			{
+
+				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+				char * morceau = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &morceau, &taille, *retour );
+				suppression_morceau(morceau, biblio);
 				free(morceau);
 				break;
 			}

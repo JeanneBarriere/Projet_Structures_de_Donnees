@@ -116,43 +116,34 @@ void insertion_morceau(char * morceau, Biblio * b){
 	insere(b, num, titre, artiste);
 }
 
-// void suppression_morceau_num(Biblio * B, char * morceau){
-// 	CellMorceau * tmpL = B->L;
-// 	CellMorceau * l2 = B->L;
-// 	int suppr = 0;
-//
-// 	int num;
-// 	char* titre = (char *) malloc(sizeof(char *));
-// 	char* artiste = (char *) malloc(sizeof(char *));
-// 	int a = 256;
-// 	char* tab="\t";
-//
-// 	num = atoi(strtok(morceau, tab));
-// 	titre = strtok(NULL, tab);
-// 	artiste = strtok(NULL, tab);
-//
-// 	if (l2->num == n){
-// 				B->L=B->L->suiv;
-// 				free(tmpL);
-// 				B->L->num=0;
-// 				suppr=1;
-// 				l2 = B->L;
-// 			};
-//
-// 	while (l2->suiv){
-// 		if(l2->suiv->num==n){
-// 			CellMorceau * l3 = l2->suiv;
-// 			l2->suiv = l3->suiv;
-// 			free(l3);
-// 			suppr = 1;
-// 		}
-// 		if (suppr ==1){
-// 			l2->suiv->num=(l2->suiv->num)-1;
-// 		}
-// 		l2=l2->suiv;
-// 	}
-// 	B->nE=(B->nE)-1;
-// }
+void suppression_morceau_num(Biblio * B, char * morceau){
+	CellMorceau * tmpL = B->L;
+	CellMorceau * l2 = B->L;
+	int suppr = 0;
+	char* tab="\t";
+
+	int num = atoi(strtok(morceau, tab));
+	char * titre = strtok(NULL, tab);
+	char * artiste = strtok(NULL, tab);
+
+	if (l2->num == n){
+				B->L=B->L->suiv;
+				free(tmpL);
+				B->L->num=0;
+				suppr=1;
+				l2 = B->L;
+			};
+
+	while (l2->suiv){
+		if(l2->suiv->num==n){
+			CellMorceau * l3 = l2->suiv;
+			l2->suiv = l3->suiv;
+			free(l3);
+			B->nE=(B->nE)-1;
+		}
+		l2=l2->suiv;
+	}
+}
 
 void affiche_morceau(CellMorceau * L){
 	if(L==NULL){

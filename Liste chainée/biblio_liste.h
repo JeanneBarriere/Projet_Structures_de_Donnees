@@ -30,6 +30,8 @@ void recherche_artiste(Biblio * B, char * a);
 
 void insertion_morceau(char * morceau, Biblio * b);
 
+void suppression_morceau(char * morceau, Biblio * b);
+
 // void affiche_morceau(CellMorceau * L);
 //
 // void affiche_morceau_avec_num(CellMorceau * L, int n);
