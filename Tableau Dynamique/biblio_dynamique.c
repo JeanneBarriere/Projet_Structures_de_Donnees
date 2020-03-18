@@ -157,30 +157,30 @@ void insertion_morceau(char * morceau, Biblio * b){
 dans la biblio. On suppose comme argument morceau
 une chaine de caractere avec le numero, le titre
 et l'artiste separer par des tabulation */
-void suppression_morceau(Biblio * B, char * morceau){
-	CellMorceau * tmpL = B->L;
-	CellMorceau * l2 = B->L;
-	int suppr = 0;
-	char* tab="\t";
-
-	int num = atoi(strtok(morceau, tab));
-	char * titre = strtok(NULL, tab);
-	char * artiste = strtok(NULL, tab);
-
-	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
-				B->L=l2->suiv;
-				free(tmpL);
-				l2 = B->L;
-				B->nE=(B->nE)-1;
-			};
-
-	while (l2->suiv){
-			CellMorceau * l3 = l2->suiv;
-			if (l3->num == num && (strcmp(l3->titre, titre)==0) && (strcmp(l3->artiste, artiste)==0) ){
-				l2->suiv = l3->suiv;
-				free(l3);
-				B->nE=(B->nE)-1;
-		}
-		l2=l2->suiv;
-	}
-}
+// void suppression_morceau(Biblio * B, char * morceau){
+// 	CellMorceau * tmpL = B->L;
+// 	CellMorceau * l2 = B->L;
+// 	int suppr = 0;
+// 	char* tab="\t";
+//
+// 	int num = atoi(strtok(morceau, tab));
+// 	char * titre = strtok(NULL, tab);
+// 	char * artiste = strtok(NULL, tab);
+//
+// 	if (l2->num == num && (strcmp(l2->titre, titre)==0) && (strcmp(l2->artiste, artiste)==0) ){
+// 				B->L=l2->suiv;
+// 				free(tmpL);
+// 				l2 = B->L;
+// 				B->nE=(B->nE)-1;
+// 			};
+//
+// 	while (l2->suiv){
+// 			CellMorceau * l3 = l2->suiv;
+// 			if (l3->num == num && (strcmp(l3->titre, titre)==0) && (strcmp(l3->artiste, artiste)==0) ){
+// 				l2->suiv = l3->suiv;
+// 				free(l3);
+// 				B->nE=(B->nE)-1;
+// 		}
+// 		l2=l2->suiv;
+// 	}
+// }
