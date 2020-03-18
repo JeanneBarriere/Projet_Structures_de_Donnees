@@ -120,7 +120,7 @@ Biblio *insertion_morceau(char * morceau, Biblio * b){
 	parse_string(morceau, &artiste, &a, *retour );
 	parse_char(morceau, *retour);
 
-	insere(biblio, num, titre, artiste);
+	insere(b, num, titre, artiste);
 }
 
 void affiche_morceau(CellMorceau * L){
