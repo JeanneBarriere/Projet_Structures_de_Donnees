@@ -79,10 +79,10 @@ void affiche(Biblio *B){
 	}else{
 		int i=0;
 		Morceau * T = B->T;
-		while (i<(B->nE)){
+		while (i<(B->capacite)){
+			i++;
 			if (T[i].artiste!=NULL){
 				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
-				i++;
 			}
 		}
 	}
@@ -97,7 +97,7 @@ void recherche_numero(Biblio * B, int n){
 	}else{
 		int i=0;
 		Morceau * T = B->T;
-		while (i<(B->nE)){
+		while (i<(B->capacite)){
 			if (T[i].artiste!=NULL){
 				if(B->T[i].num==n){
 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
@@ -117,7 +117,7 @@ void recherche_titre(Biblio * B, char * t){
 	}else{
 		int i=0;
 		Morceau * T = B->T;
-		while (i<(B->nE)){
+		while (i<(B->capacite)){
 			if (T[i].artiste!=NULL){
 				if((strcmp(B->T[i].titre, t)==0)){
 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
@@ -137,7 +137,7 @@ void recherche_artiste(Biblio * B, char * a){
 	}else{
 		int i=0;
 		Morceau * T = B->T;
-		while (i<(B->nE)){
+		while (i<(B->capacite)){
 			if (T[i].artiste!=NULL){
 				if((strcmp(B->T[i].artiste, a)==0)){
 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
@@ -188,7 +188,7 @@ void suppression_morceau(Biblio * B, char * morceau){
 	char * artiste = strtok(NULL, tab);
 
 	int i=0;
-	for (i;i<(B->nE);i++){
+	for (i;i<(B->capacite);i++){
 		if (B->T[i].num == num && (strcmp(B->T[i].titre, titre)==0) && (strcmp(B->T[i].artiste, artiste)==0) ){
 				free(B->T[i].titre);
 				free(B->T[i].artiste);
