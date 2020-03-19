@@ -5,8 +5,8 @@
 
 /*
  Cette bibliothèque contient quelques fonctions qui permettent
- de lire un fichier puis de le convertir en une liste chainee et qui permettent
- ensuite de manipuler cette chaine.
+ de lire un fichier puis de le convertir en un tableau dynamique et qui permettent
+ ensuite de manipuler ce tableau.
  */
 
 /*
@@ -24,7 +24,7 @@ Biblio * nouvelle_biblio(void){
 /*
 Cette fonction lit un fichier et créer une nouvelle biblio
 en y inserant les morceaux lus dans le fichier. Elle renvoie
-la biblio ainsi cree
+la biblio ainsi cree.
 */
 Biblio *charge_n_entrees(const char *nomfichier, int n){
 	FILE * f = fopen(nomfichier, "r");
@@ -56,7 +56,8 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 
 /*
 Cette fonciton insere dans une biblio de nouveau morceaux
-L'insertion se fait en tete de liste.
+L'insertion se fait en suivant les cases du tableau. Si le tableau est plein,
+une reallocation se fait pour l'agrandire en doublant la taille du tableau.
  */
 void insere(Biblio *B, int num, char *titre, char *artiste){
 
@@ -151,7 +152,8 @@ void recherche_artiste(Biblio * B, char * a){
 /* Cette fonction insere un nouveau morceau
 dans la biblio. On suppose comme argument morceau
 une chaine de caractere avec le numero, le titre
-et l'artiste separer par des tabulation */
+et l'artiste separer par des tabulation, le mmorceau est inséré
+dans la première case vide */
 void insertion_morceau(char * morceau, Biblio * B){
 	int num;
 	char* titre = (char *) malloc(sizeof(char *));

@@ -17,8 +17,8 @@ typedef struct Biblio {
 
 /*
  Cette bibliothèque contient quelques fonctions qui permettent
- de lire un fichier puis de le convertir en une liste chainee et qui permettent
- ensuite de manipuler cette chaine.
+ de lire un fichier puis de le convertir en un tableau dynamique et qui permettent
+ ensuite de manipuler ce tableau.
  */
 
 /*
@@ -35,7 +35,8 @@ Biblio *charge_n_entrees(const char*nom_fichier , int n);
 
 /*
 Cette fonciton insere dans une biblio de nouveau morceaux
-L'insertion se fait en tete de liste.
+L'insertion se fait en suivant les cases du tableau. Si le tableau est plein,
+une reallocation se fait pour l'agrandire en doublant la taille du tableau.
  */
 void insere(Biblio *B, int num , char* titre , char* artiste);
 
@@ -56,9 +57,10 @@ une biblio avec pour artiste le artiste passe en argument */
 void recherche_artiste(Biblio * B, char * a);
 
 /* Cette fonction insere un nouveau morceau
-dans la biblio. On suppose comme argument morceau une chaine de
-caractere avec le numero, le titre et l'artiste separer
- par des tabulation */
+dans la biblio. On suppose comme argument morceau
+une chaine de caractere avec le numero, le titre
+et l'artiste separer par des tabulation, le mmorceau est inséré
+dans la première case vide */
 void insertion_morceau(char * morceau, Biblio * b);
 
 /* Cette fonction supprime un nouveau morceau
