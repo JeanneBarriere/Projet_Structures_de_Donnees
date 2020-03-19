@@ -88,114 +88,114 @@ void affiche(Biblio *B){
 	}
 }
 
-/* Cette fonction affiche tout les morceaux contenu dans
-une biblio avec pour numero le numero passe en argument */
-void recherche_numero(Biblio * B, int n){
-	if(B->nE==0){
-		printf("La liste est vide !\n");
-		return;
-	}else{
-		int i=0;
-		Morceau * T = B->T;
-		while (i<(B->nE)){
-			if (T[i].artiste!=NULL){
-				if(B->T[i].num==n){
-					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
-				}
-				i++;
-			}
-		}
-	}
-}
-
-/* Cette fonction affiche tout les morceaux contenu dans
-une biblio avec pour titre le titre passe en argument */
-void recherche_titre(Biblio * B, char * t){
-	if(B->nE==0){
-		printf("La liste est vide !\n");
-		return;
-	}else{
-		int i=0;
-		Morceau * T = B->T;
-		while (i<(B->nE)){
-			if (T[i].artiste!=NULL){
-				if((strcmp(B->T[i].titre, t)==0)){
-					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
-				}
-				i++;
-			}
-		}
-	}
-}
-
-/* Cette fonction affiche tout les morceaux contenu dans
-une biblio avec pour artiste le artiste passe en argument */
-void recherche_artiste(Biblio * B, char * a){
-	if(B->nE==0){
-		printf("La liste est vide !\n");
-		return;
-	}else{
-		int i=0;
-		Morceau * T = B->T;
-		while (i<(B->nE)){
-			if (T[i].artiste!=NULL){
-				if((strcmp(B->T[i].artiste, a)==0)){
-					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
-				}
-				i++;
-			}
-		}
-	}
-}
-
-/* Cette fonction insere un nouveau morceau
-dans la biblio. On suppose comme argument morceau
-une chaine de caractere avec le numero, le titre
-et l'artiste separer par des tabulation */
-void insertion_morceau(char * morceau, Biblio * B){
-	int num;
-	char* titre = (char *) malloc(sizeof(char *));
-	char* artiste = (char *) malloc(sizeof(char *));
-	char * tab = "\t";
-
-	num = atoi(strtok(morceau, tab));
-	titre = strtok(NULL, tab);
-	artiste = strtok(NULL, tab);
-
-	if (B->nE == B->capacite){
-		realloc( B->T , 2*(B->capacite));
-		B->capacite = 2*(B->capacite);
-	 }
-	 int i = 0;
-	while(B->T[i].artiste!=NULL){
-		i++;
-	}
-	 B->T[i].titre = titre;
-	 B->T[i].artiste = artiste;
-	 B->T[i].num = num;
-	 B->nE = B->nE+1;
-}
-
-/* Cette fonction supprime un nouveau morceau
-dans la biblio. On suppose comme argument morceau
-une chaine de caractere avec le numero, le titre
-et l'artiste separer par des tabulation */
-void suppression_morceau(Biblio * B, char * morceau){
-	char* tab="\t";
-
-	int num = atoi(strtok(morceau, tab));
-	char * titre = strtok(NULL, tab);
-	char * artiste = strtok(NULL, tab);
-
-	int i=0;
-	for (i;i<(B->nE);i++){
-		if (B->T[i].num == num && (strcmp(B->T[i].titre, titre)==0) && (strcmp(B->T[i].artiste, artiste)==0) ){
-				free(B->T[i].titre);
-				free(B->T[i].artiste);
-				B->T[i].titre = NULL;
-				B->T[i].artiste = NULL;
-				B->T[i].num = 0;
-				B->nE=(B->nE)-1;
-			}
-		}
-}
+// /* Cette fonction affiche tout les morceaux contenu dans
+// une biblio avec pour numero le numero passe en argument */
+// void recherche_numero(Biblio * B, int n){
+// 	if(B->nE==0){
+// 		printf("La liste est vide !\n");
+// 		return;
+// 	}else{
+// 		int i=0;
+// 		Morceau * T = B->T;
+// 		while (i<(B->nE)){
+// 			if (T[i].artiste!=NULL){
+// 				if(B->T[i].num==n){
+// 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+// 				}
+// 				i++;
+// 			}
+// 		}
+// 	}
+// }
+//
+// /* Cette fonction affiche tout les morceaux contenu dans
+// une biblio avec pour titre le titre passe en argument */
+// void recherche_titre(Biblio * B, char * t){
+// 	if(B->nE==0){
+// 		printf("La liste est vide !\n");
+// 		return;
+// 	}else{
+// 		int i=0;
+// 		Morceau * T = B->T;
+// 		while (i<(B->nE)){
+// 			if (T[i].artiste!=NULL){
+// 				if((strcmp(B->T[i].titre, t)==0)){
+// 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+// 				}
+// 				i++;
+// 			}
+// 		}
+// 	}
+// }
+//
+// /* Cette fonction affiche tout les morceaux contenu dans
+// une biblio avec pour artiste le artiste passe en argument */
+// void recherche_artiste(Biblio * B, char * a){
+// 	if(B->nE==0){
+// 		printf("La liste est vide !\n");
+// 		return;
+// 	}else{
+// 		int i=0;
+// 		Morceau * T = B->T;
+// 		while (i<(B->nE)){
+// 			if (T[i].artiste!=NULL){
+// 				if((strcmp(B->T[i].artiste, a)==0)){
+// 					printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+// 				}
+// 				i++;
+// 			}
+// 		}
+// 	}
+// }
+//
+// /* Cette fonction insere un nouveau morceau
+// dans la biblio. On suppose comme argument morceau
+// une chaine de caractere avec le numero, le titre
+// et l'artiste separer par des tabulation */
+// void insertion_morceau(char * morceau, Biblio * B){
+// 	int num;
+// 	char* titre = (char *) malloc(sizeof(char *));
+// 	char* artiste = (char *) malloc(sizeof(char *));
+// 	char * tab = "\t";
+//
+// 	num = atoi(strtok(morceau, tab));
+// 	titre = strtok(NULL, tab);
+// 	artiste = strtok(NULL, tab);
+//
+// 	if (B->nE == B->capacite){
+// 		realloc( B->T , 2*(B->capacite));
+// 		B->capacite = 2*(B->capacite);
+// 	 }
+// 	 int i = 0;
+// 	while(B->T[i].artiste!=NULL){
+// 		i++;
+// 	}
+// 	 B->T[i].titre = titre;
+// 	 B->T[i].artiste = artiste;
+// 	 B->T[i].num = num;
+// 	 B->nE = B->nE+1;
+// }
+//
+// /* Cette fonction supprime un nouveau morceau
+// dans la biblio. On suppose comme argument morceau
+// une chaine de caractere avec le numero, le titre
+// et l'artiste separer par des tabulation */
+// void suppression_morceau(Biblio * B, char * morceau){
+// 	char* tab="\t";
+//
+// 	int num = atoi(strtok(morceau, tab));
+// 	char * titre = strtok(NULL, tab);
+// 	char * artiste = strtok(NULL, tab);
+//
+// 	int i=0;
+// 	for (i;i<(B->nE);i++){
+// 		if (B->T[i].num == num && (strcmp(B->T[i].titre, titre)==0) && (strcmp(B->T[i].artiste, artiste)==0) ){
+// 				free(B->T[i].titre);
+// 				free(B->T[i].artiste);
+// 				B->T[i].titre = NULL;
+// 				B->T[i].artiste = NULL;
+// 				B->T[i].num = 0;
+// 				B->nE=(B->nE)-1;
+// 			}
+// 		}
+// }
