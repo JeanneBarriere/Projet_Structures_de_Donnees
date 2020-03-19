@@ -222,13 +222,14 @@ void recherche_doublons(Biblio * B){
 }
 
 /* Cette fonction libere la bibliothèque */
-void libere_biblio(Biblio * b){
+void libere_biblio(Biblio * B){
+	int i=0;
 	for (i;i<(B->capacite);i++){
 		if( B->T[i].artiste!=NULL){
 			free( B->T[i].artiste);
 			free( B->T[i].titre);
 		}
 	}
-	free(T);
+	free(B->T);
 	free(B);
 }
