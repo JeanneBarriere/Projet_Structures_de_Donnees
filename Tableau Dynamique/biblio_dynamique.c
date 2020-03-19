@@ -82,8 +82,8 @@ void affiche(Biblio *B){
 		Morceau * T = B->T;
 		while (i<(B->nE)){
 			if (T[i].artiste!=NULL){
-				i++;
 				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
+				i++;
 			}
 		}
 	}
