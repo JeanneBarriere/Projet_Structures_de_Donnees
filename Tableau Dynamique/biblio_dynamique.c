@@ -67,7 +67,6 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 	 B->T[(B->nE)].titre = titre;
 	 B->T[(B->nE)].artiste = artiste;
 	 B->T[(B->nE)].num = num;
-	 printf("%d\t%s\t%s\n", B->T[(B->nE)].num, B->T[(B->nE)].titre, B->T[(B->nE)].artiste);
 	 B->nE = B->nE+1;
 }
 
