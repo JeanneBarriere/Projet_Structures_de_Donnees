@@ -15,8 +15,9 @@ Cette fonction renvoie un pointeur une nouvelle Biblio
 Biblio * nouvelle_biblio(void){
 	Morceau * T = malloc(25 * sizeof(Morceau));
 	if( T == NULL ){
-		 fprintf(stderr,"Allocation impossible");
-		 exit(EXIT_FAILURE);
+		perror("malloc");
+		fprintf(stderr,"Allocation impossible");
+		exit(EXIT_FAILURE);
 	}
 	Biblio * biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> capacite = 25;
