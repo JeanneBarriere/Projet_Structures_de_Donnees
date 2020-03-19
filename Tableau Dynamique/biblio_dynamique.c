@@ -14,6 +14,10 @@ Cette fonction renvoie un pointeur une nouvelle Biblio
  */
 Biblio * nouvelle_biblio(void){
 	Morceau * T = malloc(25 * sizeof(Morceau));
+	if( T == NULL ){
+		 fprintf(stderr,"Allocation impossible");
+		 exit(EXIT_FAILURE);
+	}
 	Biblio * biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> capacite = 25;
 	biblio -> T = T;
@@ -63,6 +67,10 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 
 	if (B->nE == B->capacite){
 		realloc( B->T , 2*(B->capacite));
+		if( B->T == NULL ){
+	     fprintf(stderr,"Allocation impossible");
+	     exit(EXIT_FAILURE);
+	 	}
 		B->capacite = 2*(B->capacite);
 	 }
 	 B->T[(B->nE)].titre = titre;
