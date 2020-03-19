@@ -21,6 +21,7 @@ int main(int argc , const char * argv []) {
 	int i = 1000;
 	while (i<3000000){
 		temps_final = clock () ;
+		printf("test\n");
 		Biblio *biblio = charge_n_entrees(nomfic ,i);
 		temps_cpu = (( double ) ( temps_final - temps_initial ) ) / CLOCKS_PER_SEC ;
 		printf ("%d %f ",i , temps_cpu ) ;
