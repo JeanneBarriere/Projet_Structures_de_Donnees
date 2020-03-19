@@ -4,7 +4,7 @@
 #include "biblio_dynamique.h"
 #include "parser.h"
 
-# include < time .h >
+# include <time.h>
 
 clock_t temps_initial ; /* Temps initial en micro-secondes */
 clock_t temps_final ; /* Temps final en micro-secondes */
@@ -23,7 +23,7 @@ int main(int argc , const char * argv []) {
 		temps_final = clock () ;
 		Biblio *biblio = charge_n_entrees(nomfic ,i);
 		temps_cpu = (( double ) ( temps_final - temps_initial ) ) / CLOCKS_PER_SEC ;
-		printf (”%d %f ”,n , temps_cpu ) ;
+		printf ("%d %f ",n , temps_cpu ) ;
 		libere_biblio(biblio);
 		i=i+10000;
 	}
