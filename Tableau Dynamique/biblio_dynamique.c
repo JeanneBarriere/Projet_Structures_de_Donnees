@@ -197,8 +197,8 @@ void suppression_morceau(Biblio * B, char * morceau){
 	char * titre = strtok(NULL, tab);
 	char * artiste = strtok(NULL, tab);
 
-	int i=0;
-	for (i;i<(B->capacite);i++){
+	int i;
+	for (i=0;i<(B->capacite);i++){
 		if (B->T[i].num == num && (strcmp(B->T[i].titre, titre)==0) && (strcmp(B->T[i].artiste, artiste)==0) ){
 				free(B->T[i].titre);
 				free(B->T[i].artiste);
@@ -213,11 +213,11 @@ void suppression_morceau(Biblio * B, char * morceau){
 /* Cette fonction affiche une liste comprenant les morceaux
 qui n’apparaissent qu’une fois dans la biblioth`eque. */
 void recherche_doublons(Biblio * B){
-		int i=0;
-		for (i;i<(B->capacite);i++){
+		int i;
+		for (i=0;i<(B->capacite);i++){
 			int vis =0;
-			int j=0;
-			for (j;j<(B->capacite);j++){
+			int j;
+			for (j=0;j<(B->capacite);j++){
 				if( B->T[i].artiste!=NULL && B->T[j].artiste!=NULL ){
 					if (B->T[i].num == B->T[j].num  && (strcmp(B->T[i].titre, B->T[j].titre)==0) && (strcmp(B->T[i].artiste, B->T[j].artiste)==0) ){
 					vis=vis+1;
@@ -233,8 +233,8 @@ void recherche_doublons(Biblio * B){
 
 /* Cette fonction libere la bibliothèque */
 void libere_biblio(Biblio * B){
-	int i=0;
-	for (i;i<(B->capacite);i++){
+	int i;
+	for (i=0;i<(B->capacite);i++){
 		if( B->T[i].artiste!=NULL){
 			free( B->T[i].artiste);
 			free( B->T[i].titre);
