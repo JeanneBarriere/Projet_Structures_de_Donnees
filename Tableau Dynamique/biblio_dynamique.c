@@ -213,7 +213,7 @@ void recherche_doublons(Biblio * B){
 			}
 		}
 		if(vis <= 2){
-				printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
+				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
 		}
 		vis=0;
 	}
