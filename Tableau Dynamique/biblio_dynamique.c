@@ -203,21 +203,18 @@ void suppression_morceau(Biblio * B, char * morceau){
 /* Cette fonction affiche une liste comprenant les morceaux
 qui n’apparaissent qu’une fois dans la biblioth`eque. */
 void recherche_doublons(Biblio * B){
-	while (l2){
-		int vis =0;
 		int i=0;
 		for (i;i<(B->capacite);i++){
+			int vis =0;
 			int j=0;
 			for (j;j<(B->capacite);j++){
 				if (B->T[i].num == B->T[j].num  && (strcmp(B->T[i].titre, B->T[j].titre)==0) && (strcmp(B->T[i].artiste, B->T[j].artiste)==0) ){
 				vis=vis+1;
 			}
-			l3=l3->suiv;
 		}
 		if(vis <= 2){
 				printf("%d\t%s\t%s\n", l2->num, l2->titre, l2->artiste);
 		}
 		vis=0;
-		l2=l2->suiv;
 	}
 }
