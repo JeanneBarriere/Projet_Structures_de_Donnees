@@ -17,7 +17,7 @@ Biblio * nouvelle_biblio(void){
 	Biblio * biblio = (Biblio *) malloc(sizeof(Biblio));
 	biblio -> capacite = 25;
 	biblio -> T = T;
-	biblio -> nE = 4;
+	biblio -> nE = 0;
 	return biblio;
 }
 
@@ -77,9 +77,11 @@ void affiche(Biblio *B){
 		printf("La liste est vide !\n");
 		return;
 	}else{
+		printf("Test affiche\n" );
 		int i=0;
 		Morceau * T = B->T;
 		while (i<(B->nE)){
+			printf("Test while\n" );
 			if (T[i].artiste!=NULL){
 				i++;
 				printf("%d\t%s\t%s\n", T[i].num, T[i].titre, T[i].artiste);
