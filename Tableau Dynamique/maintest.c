@@ -23,12 +23,11 @@ int main(int argc , const char * argv []) {
 		temps_final = clock () ;
 		Biblio *biblio = charge_n_entrees(nomfic ,i);
 		temps_cpu = (( double ) ( temps_final - temps_initial ) ) / CLOCKS_PER_SEC ;
-		printf ("%d %f ",n , temps_cpu ) ;
+		printf ("%d %f ",i , temps_cpu ) ;
 		libere_biblio(biblio);
 		i=i+10000;
 	}
 
-	libere_biblio(biblio);
 	printf("Au revoir\n ");
 
 	return 0;
