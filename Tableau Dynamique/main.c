@@ -52,55 +52,55 @@ int main(int argc , const char * argv []) {
 				affiche(biblio);
 				break;
 			}
-			// case 2:
-			// {
-			// 	printf("Quel numero ?\n");
-			// 	scanf("%d", &n);
-			// 	recherche_numero(biblio, n);
-			// 	break;
-			// }
-			// case 3:
-			// {
-			// 	printf("Quel titre ?\n");
-			// 	char * titre = (char *) malloc(sizeof(char *));
-			// 	parse_char(stdin, *retour);
-			// 	parse_string(stdin, &titre, &taille, *retour);
-			// 	recherche_titre(biblio, titre);
-			// 	free(titre);
-			// 	break;
-			// }
-			// case 4:
-			// {
-			// 	printf("Quel artiste?\n");
-			// 	char * artiste = (char *) malloc(sizeof(char *));
-			// 	parse_char(stdin, *retour);
-			// 	parse_string(stdin, &artiste, &taille, *retour );
-			// 	recherche_artiste(biblio, artiste);
-			// 	free(artiste);
-			// 	break;
-			// }
-			// case 5:
-			// {
-			//
-			// 	printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
-			// 	char * morceau = (char *) malloc(sizeof(char *));
-			// 	parse_char(stdin, *retour);
-			// 	parse_string(stdin, &morceau, &taille, *retour );
-			// 	insertion_morceau(morceau, biblio);
-			// 	free(morceau);
-			// 	break;
-			// }
-			// case 6:
-			// {
-			//
-			// 	printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
-			// 	char * morceau = (char *) malloc(sizeof(char *));
-			// 	parse_char(stdin, *retour);
-			// 	parse_string(stdin, &morceau, &taille, *retour );
-			// 	suppression_morceau(biblio, morceau);
-			// 	free(morceau);
-			// 	break;
-			// }
+			case 2:
+			{
+				printf("Quel numero ?\n");
+				scanf("%d", &n);
+				recherche_numero(biblio, n);
+				break;
+			}
+			case 3:
+			{
+				printf("Quel titre ?\n");
+				char * titre = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &titre, &taille, *retour);
+				recherche_titre(biblio, titre);
+				free(titre);
+				break;
+			}
+			case 4:
+			{
+				printf("Quel artiste?\n");
+				char * artiste = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &artiste, &taille, *retour );
+				recherche_artiste(biblio, artiste);
+				free(artiste);
+				break;
+			}
+			case 5:
+			{
+
+				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+				char * morceau = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &morceau, &taille, *retour );
+				insertion_morceau(morceau, biblio);
+				free(morceau);
+				break;
+			}
+			case 6:
+			{
+
+				printf("Quel morceau ? Format : num|tab|titre|tab|artiste\n");
+				char * morceau = (char *) malloc(sizeof(char *));
+				parse_char(stdin, *retour);
+				parse_string(stdin, &morceau, &taille, *retour );
+				suppression_morceau(biblio, morceau);
+				free(morceau);
+				break;
+			}
 			// case 7:
 			// {
 			// 	recherche_doublons(biblio);
