@@ -209,11 +209,11 @@ void recherche_doublons(Biblio * B){
 			int vis =0;
 			int j=0;
 			for (j;j<(B->capacite);j++){
-				printf("test J\n" );
 				if (B->T[i].num == B->T[j].num  && (strcmp(B->T[i].titre, B->T[j].titre)==0) && (strcmp(B->T[i].artiste, B->T[j].artiste)==0) ){
 				vis=vis+1;
 				}
 			}
+			printf("test sortie j\n" );
 			if(vis <= 2 && B->T[i].artiste!=NULL ){
 			printf("test 2\n");
 				printf("%d\t%s\t%s\n", B->T[i].num, B->T[i].titre, B->T[i].artiste);
