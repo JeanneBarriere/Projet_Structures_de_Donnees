@@ -11,8 +11,8 @@ clock_t temps_final ; /* Temps final en micro-secondes */
 double temps_cpu ; /* Temps total en secondes */
 
 int main(int argc , const char * argv []) {
-	if(argc != 3){
-		printf(" Erreur format : %s <NomFichierBiblio.txt> <NbLigneALire> ",argv[0]);
+	if(argc != 2){
+		printf(" Erreur format : %s <NomFichierBiblio.txt>",argv[0]);
 		return 1;
 	}
 
