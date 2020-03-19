@@ -7,7 +7,7 @@ parser.o : parser.c parser.h
 biblio_dynamique.o : biblio_dynamique.c biblio_dynamique.h
 	gcc -c biblio_dynamique.c
 	
-test : main.o biblio_dynamique.o parser.o
+test : maintest.o biblio_dynamique.o parser.o
 	gcc parser.o biblio_dynamique.o maintest.o -o test
 	
 maintest.o : maintest.c biblio_dynamique.h
