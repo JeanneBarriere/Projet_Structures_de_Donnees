@@ -101,11 +101,11 @@ int main(int argc , const char * argv []) {
 				free(morceau);
 				break;
 			}
-			// case 7:
-			// {
-			// 	recherche_doublons(biblio);
-			// 	break;
-			// }
+			case 7:
+			{
+				recherche_doublons(biblio);
+				break;
+			}
 			default:
 				ch = 0;
 				break;
