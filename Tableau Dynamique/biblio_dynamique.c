@@ -67,10 +67,11 @@ une reallocation se fait pour l'agrandire en doublant la taille du tableau.
 void insere(Biblio *B, int num, char *titre, char *artiste){
 
 	if (B->nE == B->capacite){
-		realloc( B->T , 2*(B->capacite));
-		if( B->T == NULL ){
-	     fprintf(stderr,"Allocation impossible");
-	     exit(EXIT_FAILURE);
+		void * t = realloc( B->T , 2*(B->capacite));
+		if( t == NULL ){
+			perror("realloc");
+	    fprintf(stderr,"Allocation impossible");
+	    exit(EXIT_FAILURE);
 	 	}
 		B->capacite = 2*(B->capacite);
 	 }
@@ -174,7 +175,12 @@ void insertion_morceau(char * morceau, Biblio * B){
 	artiste = strtok(NULL, tab);
 
 	if (B->nE == B->capacite){
-		realloc( B->T , 2*(B->capacite));
+		void * t = realloc( B->T , 2*(B->capacite));
+		if( t == NULL ){
+			perror("realloc");
+	    fprintf(stderr,"Allocation impossible");
+	    exit(EXIT_FAILURE);
+	 	}
 		B->capacite = 2*(B->capacite);
 	 }
 	 int i = 0;
