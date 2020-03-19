@@ -205,19 +205,16 @@ qui n’apparaissent qu’une fois dans la biblioth`eque. */
 void recherche_doublons(Biblio * B){
 		int i=0;
 		for (i;i<(B->capacite);i++){
-			printf("test 1\n");
 			int vis =0;
 			int j=0;
 			for (j;j<(B->capacite);j++){
 				if( B->T[i].artiste!=NULL && B->T[j].artiste!=NULL ){
-				if (B->T[i].num == B->T[j].num  && (strcmp(B->T[i].titre, B->T[j].titre)==0) && (strcmp(B->T[i].artiste, B->T[j].artiste)==0) ){
-				vis=vis+1;
+					if (B->T[i].num == B->T[j].num  && (strcmp(B->T[i].titre, B->T[j].titre)==0) && (strcmp(B->T[i].artiste, B->T[j].artiste)==0) ){
+					vis=vis+1;
+					}
 				}
 			}
-			}
-			printf("test sortie j\n" );
 			if(vis <= 2 && B->T[i].artiste!=NULL ){
-			printf("test 2\n");
 				printf("%d\t%s\t%s\n", B->T[i].num, B->T[i].titre, B->T[i].artiste);
 		}
 		vis=0;
