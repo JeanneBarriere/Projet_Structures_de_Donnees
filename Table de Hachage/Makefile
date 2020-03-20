@@ -1,5 +1,5 @@
 all : main.o biblio_hachage.o parser.o
-	gcc parser.o biblio_hachage.o main.o -o main
+	gcc -lm parser.o biblio_hachage.o main.o -o main
 
 parser.o : parser.c parser.h
 	gcc -c parser.c

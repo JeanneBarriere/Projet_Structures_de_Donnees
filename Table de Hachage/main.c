@@ -2,9 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
-#include "biblio.h"
-#include "biblio_liste.h"
-#include "biblio_arbrelex.h"
+#include "biblio_hachage.h"
 
 void menu() {
 
@@ -15,8 +13,8 @@ void menu() {
 	printf("3-Recherche morceau par titre\n");
 	printf("4-Recherche morceau par artiste\n");
 	printf("5-Recherche morceau par num\n");
-	printf("6-Supprimer morceau par num (! Opération irréversible !)\n");
-	printf("7-Insertion d'un nouveau\n");
+	printf("6-Supprimer morceau par num (Opération irréversible!)\n");
+	printf("7-Insertion d'un nouveau morceau\n");
 	printf("Votre choix : ");
 }
 
@@ -35,7 +33,7 @@ int main(int argc , const char * argv []) {
 	printf("Lecture:\n");
 	Biblio *biblio = charge_n_entrees(nomfic , nlignes);
 
-
+	int n;
 
 	int ch;
 	do{
@@ -53,6 +51,10 @@ int main(int argc , const char * argv []) {
 			}
 			case 2:
 			{
+				/*printf("Quel numero ?\n");
+				scanf("%d", &n);
+				recherche_numero(biblio, n);
+				break;*/
 				Biblio *Bunique = uniques(biblio);
 					if (Bunique != NULL) { 
 						affiche(Bunique);
@@ -76,7 +78,7 @@ int main(int argc , const char * argv []) {
 			{
 					printf("Saisir le nom de l'artiste :\n");
 					scanf(" %[^\n]", artiste);
-					Biblio *r = extraireMorceauxDe(biblio, artiste);
+					Biblio *r = rechercheParArtiste (biblio, artiste);
 					if (r == NULL) printf("%s n'a aucun morceau dans la bibliothèque!!!\n", artiste);
 					else {
 						affiche(r);
@@ -103,24 +105,23 @@ int main(int argc , const char * argv []) {
 						printf("Suppression impossible : Aucun morceau de num : %d!!!\n", num);
 					}
 					break;
-			case 6 :
-				{
-					printf("Saisir le num du morceau :\n");
-					scanf(" %d", &num);
-					if (supprimeMorceau(biblio, num)){
-						printf("Le morceau %d a bien a été supprimé\n", num);
-					}else{
-						printf("Suppression impossible : Aucun morceau de num : %d!!!\n", num);
-					}
+			}
+			case 7 :
+			{
+					printf("Saisir le nom de l'artiste :\n");
+					scanf(" %[^\n]", artiste);
+					printf("Saisir le titre du morceau :\n");
+					scanf(" %[^\n]", titre);
+					insereSansNum(biblio, titre, artiste);
 					break;
-			}	
+			}
 			default:
 				ch = 0;
 				break;
 		}
 	} while(ch != 0);
 
-	//libere_biblio(biblio);
+	libere_biblio(biblio);
 	printf("Au revoir\n ");
 
 	return 0;

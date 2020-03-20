@@ -27,7 +27,7 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 			parse_string(f, &artiste, &a, *retour );
 			parse_char(f, *retour);
 
-			insere_lex(biblio, num, titre, artiste);
+			insere(biblio, num, titre, artiste);
 		}
 	}
 	fclose(f);
@@ -35,12 +35,29 @@ Biblio *charge_n_entrees(const char *nomfichier, int n){
 }
 
 //creer une nouvelle bibliotheque
-Biblio *nouvelle_biblio(void) 
-{
-    Biblio *B = malloc(sizeof(Biblio));
+/*Biblio *nouvelle_biblio1() {
+	CellMorceau * T = malloc((TAILLE_TABLE) * sizeof(CellMorceau));
+	if( T == NULL ){
+		perror("malloc");
+		fprintf(stderr,"Allocation impossible");
+		exit(EXIT_FAILURE);
+	}
+    Biblio *B = (Biblio *) malloc(sizeof(Biblio));
     B->m = TAILLE_TABLE;
     B->nE = 0;
-    B->T = malloc(sizeof(CellMorceau)*B->m);
+    B->T = & T;
+    printf("test\n");
+  	int i;
+  	for (i = 0; i < B->m; i++)
+  		B->T[i] = NULL;
+    return B;
+}*/
+
+Biblio *nouvelle_biblio(void) {
+    Biblio *B = (Biblio *) malloc(sizeof(Biblio));
+    B->m = TAILLE_TABLE;
+    B->nE = 0;
+    B->T = (CellMorceau** ) malloc(sizeof(CellMorceau)*B->m);
   	int i;
   	for (i = 0; i < B->m; i++)
   		B->T[i] = NULL;
@@ -48,8 +65,7 @@ Biblio *nouvelle_biblio(void)
 }
 
 //liberer une bibliotheque
-void libere_biblio(Biblio *B)
-{
+void libere_biblio(Biblio *B){
     int i;
     for (i = 0; i < B->m; i++) {
         CellMorceau *cell = B->T[i];
@@ -80,6 +96,7 @@ static unsigned int fonction_hachage(unsigned int k, int m){
     double ka = k*A;
     return (unsigned int)(m * (ka - floor(ka)));
 }
+
 //fonction qui insere un morceau dans la biblio
 void insere(Biblio *B, int num, char *titre, char *artiste){
     CellMorceau *nouv = malloc(sizeof(CellMorceau));
@@ -98,7 +115,7 @@ void insere(Biblio *B, int num, char *titre, char *artiste){
 //Afficher un seul morceau
 void afficheMorceau(CellMorceau *cell)
 {
-	printf("| %8d | %-32.32s | %-32.32s |\n", cell->num, cell->titre, cell->artiste);
+	printf(" %8d %-32.32s %-32.32s\n", cell->num, cell->titre, cell->artiste);
 }
 
 //Afficher une biblio 
@@ -114,12 +131,14 @@ void affiche(Biblio *B){
     printf("La bibliotheque contient %d morceaux\n", B->nE);
 }
 
-//Fonction qui retourne les morceaux uniques 
+//Fonction qui retourne les morceaux uniques(sans doublons) 
 Biblio *uniques (Biblio *B){
-    Biblio *nouvB = nouvelle_biblio();
+    Biblio * nouv = nouvelle_biblio();
+    //printf("test\n");
     long long int cpt = 0;
     int i;
     for (i = 0; i < B->m; i++) {
+    	
         CellMorceau *cour = B->T[i];
         while (cour != NULL) {
             CellMorceau *cour2 = B->T[i];
@@ -133,14 +152,16 @@ Biblio *uniques (Biblio *B){
                 cour2 = cour2->suiv;
             }
             if (cour2 == NULL)
-                insere(nouvB, cour->num, strdup(cour->titre), strdup(cour->artiste));
+                insere(B, cour->num, strdup(cour->titre), strdup(cour->artiste));
             cour = cour->suiv;
         }
     }
     
     printf("Nombre de tours : %lld\n", cpt);
-    return nouvB;
+    return B;
 }
+
+
 
 //Recherche d'un morceau par son num
 CellMorceau * rechercheParNum(Biblio *B, int num)
@@ -181,6 +202,22 @@ Biblio *rechercheParArtiste(Biblio *B, char * artiste){
 		m = m->suiv;
 	}
 	return b_art;
+}
+
+//inserer dans la biblio en donnant le titre et l'artiste comme param
+void insereSansNum(Biblio *B, char *titre, char *artiste)
+{
+	int i;
+	int numMax = 0;
+    for (i = 0; i < B->m; i++) {
+    	CellMorceau *cour = B->T[i];
+    	while (cour != NULL) {
+    		if (cour->num >= numMax)
+    			numMax = cour->num;
+    		cour = cour->suiv;
+    	}
+    }
+    insere(B, numMax + 1, strdup(titre), strdup(artiste));
 }
 
 //Suprrimer un morceau par le numero

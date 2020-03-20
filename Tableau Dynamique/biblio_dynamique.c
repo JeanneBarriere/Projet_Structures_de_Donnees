@@ -25,6 +25,16 @@ Biblio * nouvelle_biblio(void){
 	biblio -> nE = 0;
 	return biblio;
 }
+/*Biblio *nouvelle_biblio(void) {
+    Biblio *B = malloc(sizeof(Biblio));
+    biblio -> capacite = 25;
+    B->nE = 0;
+    B->T = calloc(25, sizeof(Morceau)); //malloc(sizeof(CellMorceau)*B->m);
+  	int i;
+  	for (i = 0; i <25; i++)
+  		B->T[i] = NULL;
+    return B;
+}*/
 
 /*
 Cette fonction lit un fichier et créer une nouvelle biblio
