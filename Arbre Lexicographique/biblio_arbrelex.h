@@ -39,23 +39,28 @@ void recherche_titre(Biblio * B, char * titre);
 
 void affiche_noeud_titre(Noeud * n, char * titre);
 
-void affiche_artiste(Biblio *B, char *artiste);
+//void affiche_artiste(Biblio *B, char *artiste);
 
-// void recherche_artiste_prof(Biblio *B, char *artiste);
+//void recherche_artiste_prof(Biblio *B, char *artiste);
 
-// void recherche_artiste(Biblio *B, char *artiste);
-//
-// void affiche_noeud_artiste(Noeud * n, char * artiste);
+void recherche_artiste(Biblio *B, char *artiste);
 
-//
-//
-//
-//
+void affiche_noeud_artiste(Noeud * n, char * artiste);
 
 // void affiche_artiste(Biblio *B, char *artiste);
 
-// void suppression_morceau(Biblio *B, char *a, int num, char * t);
-//
+//void suppression_morceau(Biblio *B, char *a, int num, char * t);
+static Noeud * rechercheNoeudDe(Noeud *racine, int num);
+
+static long long int noeuds_uniques(Biblio *Bextr, Noeud *A);
+
+Biblio *uniques (Biblio *B);
+
+int supprimer_morceau(Biblio *B, int num);
+
+static void libere_noeud(Noeud *A);
+
+void libere_biblio(Biblio *B);
 // void affiche_doublon(Biblio *B);
 //
 // void affiche_noeud_doublon(Noeud * n);

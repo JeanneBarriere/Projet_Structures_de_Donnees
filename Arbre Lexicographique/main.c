@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
@@ -11,7 +12,9 @@ void menu() {
 	printf("\t2−Affiche morceaux par numéro \n");
 	printf("\t3−Affiche morceau par titre \n");
 	printf("\t4−Affiche morceaux par artiste \n");
-
+	printf("\t5-Recherche morceaux uniques\n");
+	printf("\t6−Supprimer morceaux par num\n");
+	
 	printf("Votre choix:");
 }
 
@@ -28,7 +31,7 @@ int main(int argc , const char * argv []) {
 	Biblio *biblio = charge_n_entrees(nomfic , nlignes);
 	affiche(biblio);
 
-
+	
 	int ch;
 	int n;
 	char * t;
@@ -55,18 +58,37 @@ int main(int argc , const char * argv []) {
 			case 3:
 			{
 				printf("Quel titre ?\n");
-				char s[20];
-				gets(s);
+				char s[20] = "";
+				scanf("%19s", s);
 				recherche_titre(biblio, s);
 				break;
 			}
 			case 4:
 			{
 				printf("Quel artiste?\n");
-				char a[50];
-				gets(a);
+				char a[50] = "";
+				scanf("%49s", a);
 				printf("%s\n", a);
-				affiche_artiste(biblio, a);
+				recherche_artiste(biblio, a);
+				break;
+			}
+			case 5:
+				{
+					Biblio *Bunique = uniques(biblio);
+					if (Bunique != NULL) { 
+						affiche(Bunique);
+						libere_biblio(Bunique);
+					} 
+					else
+						printf("La bibliothèque est vide !!!\n");
+					break;
+				}
+			case 6:
+			{
+				printf("Quel numero ?\n");
+				scanf("%d", &n);
+				supprimer_morceau(biblio, n);
+				affiche(biblio);
 				break;
 			}
 			default:
@@ -74,7 +96,7 @@ int main(int argc , const char * argv []) {
 				break;
 		}
 	} while(ch != 0);
-
+	
 	//libere_biblio(biblio);
 	printf("Au revoir\n ");
 
