@@ -15,32 +15,32 @@ typedef struct Biblio {
 	int nE ; /* Nombre de morceau dans la hachage */
 }Biblio;
 
-Biblio *charge_n_entrees(const char*nom_fichier , int n);
+Biblio *charge_n_entrees(const char *nomfichier, int n);
 
-void affiche(Biblio *B);
-
-void affiche_morceau(CellMorceau * L);
-
-void affiche_morceau_avec_num(CellMorceau * L, int n);
-
-Biblio *uniques(Biblio *B);
-
-Biblio *nouvelle_biblio(void);
+Biblio *nouvelle_biblio(void); 
 
 void libere_biblio(Biblio *B);
 
-Biblio *nouvelle_biblio(void);
+static unsigned int fonction_cle(const char *artiste);
 
-void insere(Biblio *B, int num , char* titre , char* artiste);
+static unsigned int fonction_hachage(unsigned int k, int m);
 
-void suppression_morceau_num(Biblio * B, int n);
+void insere(Biblio *B, int num, char *titre, char *artiste);
 
-void suppression_morceau_titre(Biblio * B, char * t);
+void afficheMorceau(CellMorceau *cell);
 
-void recherche_doublons(Biblio * B);
+void affiche(Biblio *B);
 
-CellMorceau * recherche_numero(Biblio * B, int n);
+Biblio *uniques (Biblio *B);
+   
+CellMorceau * rechercheParNum(Biblio *B, int num);
 
-CellMorceau * recherche_titre(Biblio * B, char * t);
+CellMorceau *rechercheParTitre(Biblio *B, char * titre);
+
+Biblio *rechercheParArtiste(Biblio *B, char * artiste);
+
+int supprimeMorceau(Biblio *B, int num);
+
+
 
 #endif/* biblio_hachage_h */
